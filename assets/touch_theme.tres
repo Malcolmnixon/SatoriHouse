@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ejuwnpkem3ex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slmbe"]
+bg_color = Color(0.501961, 0.752941, 0.501961, 1)
+
+[resource]
+default_font_size = 20
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/pressed = SubResource("StyleBoxFlat_slmbe")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10

@@ -1,0 +1,168 @@
+[gd_scene load_steps=28 format=3 uid="uid://cbceiu7ra3r51"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_hk7kl"]
+[ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_law21"]
+[ext_resource type="PackedScene" uid="uid://bjcxf427un2wp" path="res://addons/godot-xr-tools/player/poke/poke.tscn" id="2_b5jya"]
+[ext_resource type="PackedScene" uid="uid://df5hynbooj1uj" path="res://addons/hand_pose_detector/hand_pose_detector.tscn" id="2_drp2d"]
+[ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="2_e188g"]
+[ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose.gd" id="3_avjaf"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="4_6r5jv"]
+[ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="4_jfajt"]
+[ext_resource type="Resource" uid="uid://ra50ueubhepa" path="res://addons/hand_pose_detector/poses/point_thumb_up.tres" id="6_haqry"]
+[ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="6_th1sa"]
+[ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="7_lyqvy"]
+[ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="8_64635"]
+[ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_set.gd" id="9_4d3g8"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="12_q5awc"]
+[ext_resource type="PackedScene" uid="uid://b08u6h1qfkbqb" path="res://assets/objects/props/old_japanese_lamp.tscn" id="14_oef0o"]
+[ext_resource type="PackedScene" uid="uid://2g4meocaiaok" path="res://assets/menu/hand_menu.tscn" id="14_qvb2p"]
+[ext_resource type="PackedScene" uid="uid://b584tvyffxvn5" path="res://assets/sound/sound.tscn" id="15_7elnb"]
+[ext_resource type="AudioStream" uid="uid://bhpla85yv8cd4" path="res://assets/freesound/water/676173__nox_sound__ambiance_fountain_small_loop_stereo.wav" id="16_is4jp"]
+[ext_resource type="PackedScene" uid="uid://d2qcak8s8ngvr" path="res://assets/objects/props/fountain.tscn" id="16_xddkk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wn0fy"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_e4fov"]
+sky_material = SubResource("ProceduralSkyMaterial_wn0fy")
+
+[sub_resource type="Environment" id="Environment_tgbd8"]
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
+sky = SubResource("Sky_e4fov")
+ambient_light_source = 2
+ambient_light_color = Color(0.351563, 0.351563, 0.351563, 1)
+reflected_light_source = 1
+tonemap_mode = 2
+
+[sub_resource type="Resource" id="Resource_uynfr"]
+script = ExtResource("6_th1sa")
+poses = Array[ExtResource("3_avjaf")]([ExtResource("4_jfajt"), ExtResource("6_haqry")])
+
+[sub_resource type="Resource" id="Resource_btybm"]
+script = ExtResource("8_64635")
+pose = ExtResource("4_jfajt")
+action_type = 1
+action_name = "grip"
+
+[sub_resource type="Resource" id="Resource_2irym"]
+script = ExtResource("8_64635")
+pose = ExtResource("6_haqry")
+action_type = 0
+action_name = "hand_menu"
+
+[sub_resource type="Resource" id="Resource_168a2"]
+script = ExtResource("9_4d3g8")
+actions = Array[ExtResource("8_64635")]([SubResource("Resource_btybm"), SubResource("Resource_2irym")])
+
+[sub_resource type="Resource" id="Resource_ady3t"]
+script = ExtResource("9_4d3g8")
+actions = Array[ExtResource("8_64635")]([SubResource("Resource_btybm"), SubResource("Resource_2irym")])
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_hk7kl")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_tgbd8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 4, 0)
+shadow_enabled = true
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="LeftTrackedHand" type="XRNode3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
+tracker = &"/user/hand_tracker/left"
+
+[node name="LeftHandHumanoid2" parent="XROrigin3D/LeftTrackedHand" instance=ExtResource("1_law21")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/LeftTrackedHand/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="XROrigin3D/LeftTrackedHand/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="2"]
+transform = Transform3D(0.0148923, 0.3927, 0.919546, -0.993092, 0.112853, -0.0321113, -0.116383, -0.912716, 0.391668, -0.0111001, 0.0429431, -0.171614)
+bone_name = "LeftIndexTip"
+bone_idx = 9
+
+[node name="LeftFingerPoke" parent="XROrigin3D/LeftTrackedHand/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D/BoneAttachment3D" instance=ExtResource("2_b5jya")]
+unique_name_in_owner = true
+mask = 2151743487
+
+[node name="HandPoseDetector" parent="XROrigin3D/LeftTrackedHand" instance=ExtResource("2_drp2d")]
+hand_pose_set = SubResource("Resource_uynfr")
+
+[node name="HandPoseController" parent="XROrigin3D/LeftTrackedHand/HandPoseDetector" instance=ExtResource("7_lyqvy")]
+pose_type = 1
+action_set = SubResource("Resource_168a2")
+
+[node name="RightTrackedHand" type="XRNode3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0)
+tracker = &"/user/hand_tracker/right"
+
+[node name="RightHandHumanoid2" parent="XROrigin3D/RightTrackedHand" instance=ExtResource("2_e188g")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/RightTrackedHand/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="1"]
+hand_tracker = &"/user/hand_tracker/right"
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="XROrigin3D/RightTrackedHand/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="2"]
+transform = Transform3D(0.0190384, -0.392689, -0.919474, 0.993227, 0.112853, -0.0276318, 0.114616, -0.912721, 0.392177, 0.0111, 0.042943, -0.171613)
+bone_name = "RightIndexTip"
+bone_idx = 9
+
+[node name="RightFingerPoke" parent="XROrigin3D/RightTrackedHand/RightHandHumanoid2/RightHandHumanoid/Skeleton3D/BoneAttachment3D" instance=ExtResource("2_b5jya")]
+unique_name_in_owner = true
+mask = 2151743487
+
+[node name="HandPoseDetector" parent="XROrigin3D/RightTrackedHand" instance=ExtResource("2_drp2d")]
+hand_pose_set = SubResource("Resource_uynfr")
+tracker_name = "/user/hand_tracker/right"
+
+[node name="HandPoseController" parent="XROrigin3D/RightTrackedHand/HandPoseDetector" instance=ExtResource("7_lyqvy")]
+tracker_name = "/user/hand_pose_controller/right"
+pose_type = 1
+action_set = SubResource("Resource_ady3t")
+
+[node name="LeftVirtualController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
+tracker = &"/user/hand_pose_controller/left"
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftVirtualController" instance=ExtResource("12_q5awc")]
+grab_distance = 0.1
+ranged_enable = false
+
+[node name="HandMenu" parent="XROrigin3D/LeftVirtualController" instance=ExtResource("14_qvb2p")]
+transform = Transform3D(0.309975, 0.144544, 0.939693, -0.422618, 0.906307, 0, -0.85165, -0.397131, 0.34202, 0.03, 0.05, -0.065)
+
+[node name="RightVirtualController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0)
+tracker = &"/user/hand_pose_controller/right"
+
+[node name="FunctionPickup" parent="XROrigin3D/RightVirtualController" instance=ExtResource("12_q5awc")]
+grab_distance = 0.1
+ranged_enable = false
+
+[node name="HandMenu" parent="XROrigin3D/RightVirtualController" instance=ExtResource("14_qvb2p")]
+transform = Transform3D(0.309975, -0.144544, -0.939693, 0.422618, 0.906308, 0, 0.85165, -0.397131, 0.34202, -0.03, 0.05, -0.065)
+
+[node name="OldJapaneseLamp" parent="." instance=ExtResource("14_oef0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170668, 1, -0.366727)
+
+[node name="Fountain" parent="." instance=ExtResource("16_xddkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225421, 0.933576, -0.552743)
+
+[node name="Sound" parent="." instance=ExtResource("15_7elnb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1, -0.6)
+stream = ExtResource("16_is4jp")
+
+[node name="StartXR" parent="." instance=ExtResource("4_6r5jv")]
+enable_passthrough = true
+
+[editable path="XROrigin3D/LeftTrackedHand/LeftHandHumanoid2"]
+[editable path="XROrigin3D/RightTrackedHand/RightHandHumanoid2"]

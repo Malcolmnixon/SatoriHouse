@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2g4meocaiaok"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_0qvfs"]
+[ext_resource type="Script" path="res://assets/menu/hand_menu.gd" id="1_tkehn"]
+[ext_resource type="PackedScene" uid="uid://dw3by6pgyitx6" path="res://assets/menu/menu.tscn" id="2_x2idq"]
+
+[node name="HandMenu" type="Node3D"]
+script = ExtResource("1_tkehn")
+
+[node name="Menu" parent="." instance=ExtResource("1_0qvfs")]
+visible = false
+screen_size = Vector2(0.25, 0.2)
+enabled = false
+collision_layer = 5242880
+scene = ExtResource("2_x2idq")
+viewport_size = Vector2(500, 400)
+update_mode = 2
+throttle_fps = 20.0
+transparent = 2
+unshaded = true
+scene_properties_keys = PackedStringArray("menu.gd")

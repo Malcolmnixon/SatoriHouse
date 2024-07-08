@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3by6pgyitx6"]
+
+[ext_resource type="Script" path="res://assets/menu/menu.gd" id="1_4wrla"]
+[ext_resource type="Theme" uid="uid://ejuwnpkem3ex" path="res://assets/touch_theme.tres" id="2_gx5fp"]
+
+[node name="Menu" type="Control"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 400.0
+theme = ExtResource("2_gx5fp")
+script = ExtResource("1_4wrla")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Options" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Options"]
+layout_mode = 2
+
+[node name="ShowAudio" type="Button" parent="TabContainer/Options/VBoxContainer"]
+custom_minimum_size = Vector2(299, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+button_pressed = true
+text = "Show Audio"
+
+[node name="Control" type="Control" parent="TabContainer/Options/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Options/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Options/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Save"
+
+[node name="Control" type="Control" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Quit"
+
+[node name="Plants" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 1
+
+[connection signal="toggled" from="TabContainer/Options/VBoxContainer/ShowAudio" to="." method="_on_show_audio_toggled"]
+[connection signal="pressed" from="TabContainer/Options/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="TabContainer/Options/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
