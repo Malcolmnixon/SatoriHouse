@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://d2qcak8s8ngvr"]
 
-[ext_resource type="PackedScene" uid="uid://dlcfi7dsnrdlp" path="res://assets/objects/placeable.tscn" id="1_j6abv"]
-[ext_resource type="PackedScene" uid="uid://da303sjcfyr7d" path="res://assets/sketchfab/fountain_prop/teascroll_clubhouse_-_fountain_prop.glb" id="2_2u2da"]
+[ext_resource type="PackedScene" uid="uid://dlcfi7dsnrdlp" path="res://assets/objects/scenes/placeable/placeable.tscn" id="1_j6abv"]
+[ext_resource type="PackedScene" uid="uid://da303sjcfyr7d" path="res://assets/objects/props/fountain/teascroll_clubhouse_-_fountain_prop.glb" id="2_2u2da"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_am05e"]
 height = 0.145

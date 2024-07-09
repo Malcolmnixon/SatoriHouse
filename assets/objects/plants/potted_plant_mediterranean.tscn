@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmvwkj1qkk85p"]
+
+[ext_resource type="PackedScene" uid="uid://dlcfi7dsnrdlp" path="res://assets/objects/scenes/placeable/placeable.tscn" id="1_bllxq"]
+[ext_resource type="PackedScene" uid="uid://c2no3hnsveqej" path="res://assets/objects/plants/potted_plant_mediterranean/potted_plant_mediterranean_med_leaf_low_poly.glb" id="2_pv5a4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3vnex"]
+height = 0.6
+radius = 0.14
+
+[node name="PottedPlantMediterranean" instance=ExtResource("1_bllxq")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CylinderShape3D_3vnex")
+
+[node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("2_pv5a4")]

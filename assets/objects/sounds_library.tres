@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="DecorationLibrary" load_steps=7 format=3 uid="uid://ctbjosviisir5"]
+
+[ext_resource type="Script" path="res://assets/menu/decoration.gd" id="1_7085h"]
+[ext_resource type="Texture2D" uid="uid://dwxt3baf3eaxw" path="res://assets/objects/sounds/forest/forest.png" id="2_x7xjk"]
+[ext_resource type="Script" path="res://assets/menu/decoration_library.gd" id="3_6gv8p"]
+[ext_resource type="Texture2D" uid="uid://bxm32mbt0578d" path="res://assets/objects/sounds/water/water.png" id="3_66dg2"]
+
+[sub_resource type="Resource" id="Resource_pk6d6"]
+script = ExtResource("1_7085h")
+description = "Forest"
+image = ExtResource("2_x7xjk")
+instance_scene = "res://assets/objects/sounds/forest.tscn"
+
+[sub_resource type="Resource" id="Resource_skrin"]
+script = ExtResource("1_7085h")
+description = "Water"
+image = ExtResource("3_66dg2")
+instance_scene = "res://assets/objects/sounds/water.tscn"
+
+[resource]
+script = ExtResource("3_6gv8p")
+decorations = Array[ExtResource("1_7085h")]([SubResource("Resource_pk6d6"), SubResource("Resource_skrin")])

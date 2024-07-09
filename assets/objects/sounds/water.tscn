@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddbrcsu1xnf80"]
+
+[ext_resource type="PackedScene" uid="uid://b584tvyffxvn5" path="res://assets/objects/scenes/sound/sound.tscn" id="1_ch7yk"]
+[ext_resource type="AudioStream" uid="uid://bhpla85yv8cd4" path="res://assets/objects/sounds/water/676173__nox_sound__ambiance_fountain_small_loop_stereo.wav" id="2_8gf4l"]
+
+[node name="Water" instance=ExtResource("1_ch7yk")]
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("2_8gf4l")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cbceiu7ra3r51"]
+[gd_scene load_steps=24 format=3 uid="uid://cbceiu7ra3r51"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_hk7kl"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_law21"]
@@ -14,11 +14,7 @@
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="8_64635"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_set.gd" id="9_4d3g8"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="12_q5awc"]
-[ext_resource type="PackedScene" uid="uid://b08u6h1qfkbqb" path="res://assets/objects/props/old_japanese_lamp.tscn" id="14_oef0o"]
 [ext_resource type="PackedScene" uid="uid://2g4meocaiaok" path="res://assets/menu/hand_menu.tscn" id="14_qvb2p"]
-[ext_resource type="PackedScene" uid="uid://b584tvyffxvn5" path="res://assets/sound/sound.tscn" id="15_7elnb"]
-[ext_resource type="AudioStream" uid="uid://bhpla85yv8cd4" path="res://assets/freesound/water/676173__nox_sound__ambiance_fountain_small_loop_stereo.wav" id="16_is4jp"]
-[ext_resource type="PackedScene" uid="uid://d2qcak8s8ngvr" path="res://assets/objects/props/fountain.tscn" id="16_xddkk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wn0fy"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -151,15 +147,8 @@ ranged_enable = false
 [node name="HandMenu" parent="XROrigin3D/RightVirtualController" instance=ExtResource("14_qvb2p")]
 transform = Transform3D(0.309975, -0.144544, -0.939693, 0.422618, 0.906308, 0, 0.85165, -0.397131, 0.34202, -0.03, 0.05, -0.065)
 
-[node name="OldJapaneseLamp" parent="." instance=ExtResource("14_oef0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170668, 1, -0.366727)
-
-[node name="Fountain" parent="." instance=ExtResource("16_xddkk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225421, 0.933576, -0.552743)
-
-[node name="Sound" parent="." instance=ExtResource("15_7elnb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1, -0.6)
-stream = ExtResource("16_is4jp")
+[node name="Decorations" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="StartXR" parent="." instance=ExtResource("4_6r5jv")]
 enable_passthrough = true

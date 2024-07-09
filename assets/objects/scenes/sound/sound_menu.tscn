@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5dy21aohh6pg"]
+
+[ext_resource type="Script" path="res://assets/objects/scenes/sound/sound_menu.gd" id="1_bpevt"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_eist5"]
+[ext_resource type="PackedScene" uid="uid://cj2yj44witib0" path="res://assets/objects/scenes/sound/sound_menu_2d.tscn" id="3_x0ngj"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_p0pwj"]
+resource_local_to_scene = true
+size = Vector2(0.2, 0.05)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_55fky"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8iomw"]
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_55fky")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjp1m"]
+resource_local_to_scene = true
+size = Vector3(0.2, 0.05, 0.02)
+
+[node name="SoundMenu" type="Node3D"]
+script = ExtResource("1_bpevt")
+
+[node name="Menu" parent="." instance=ExtResource("2_eist5")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+screen_size = Vector2(0.2, 0.05)
+collision_layer = 2147483648
+scene = ExtResource("3_x0ngj")
+viewport_size = Vector2(200, 50)
+transparent = 2
+unshaded = true
+scene_properties_keys = PackedStringArray("sound_menu_2d.gd", "player")
+
+[node name="Viewport" parent="Menu" index="0"]
+size = Vector2i(200, 50)
+
+[node name="Screen" parent="Menu" index="1"]
+layers = 524288
+mesh = SubResource("QuadMesh_p0pwj")
+surface_material_override/0 = SubResource("StandardMaterial3D_8iomw")
+
+[node name="StaticBody3D" parent="Menu" index="2"]
+collision_layer = 2147483648
+screen_size = Vector2(0.2, 0.05)
+viewport_size = Vector2(200, 50)
+
+[node name="CollisionShape3D" parent="Menu/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_xjp1m")
+
+[editable path="Menu"]

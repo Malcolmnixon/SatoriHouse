@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlcfi7dsnrdlp"]
-
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_5fw0b"]
-
-[node name="Placeable" instance=ExtResource("1_5fw0b")]
-freeze = true
-ranged_grab_method = 0
-second_hand_grab = 1

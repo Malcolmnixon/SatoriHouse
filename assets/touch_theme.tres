@@ -1,7 +1,11 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ejuwnpkem3ex"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ejuwnpkem3ex"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slmbe"]
 bg_color = Color(0.501961, 0.752941, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qja70"]
+content_margin_left = 24.0
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
 
 [resource]
 default_font_size = 20
@@ -11,3 +15,4 @@ MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_qja70")

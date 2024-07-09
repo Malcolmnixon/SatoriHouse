@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1hwfmmlncfox"]
+
+[ext_resource type="PackedScene" uid="uid://b584tvyffxvn5" path="res://assets/objects/scenes/sound/sound.tscn" id="1_32q3x"]
+[ext_resource type="AudioStream" uid="uid://dsedt63jdytbw" path="res://assets/objects/sounds/forest/170515__rolandasb__forest_ambient_01_loop.wav" id="2_3ruj6"]
+
+[node name="Forest" instance=ExtResource("1_32q3x")]
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("2_3ruj6")
