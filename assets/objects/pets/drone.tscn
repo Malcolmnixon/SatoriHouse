@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy8lohwhhiyu0"]
+
+[ext_resource type="PackedScene" uid="uid://cx3na44g7dj65" path="res://assets/objects/scenes/pet/pet.tscn" id="1_rg2j8"]
+[ext_resource type="PackedScene" uid="uid://5wfijtk438up" path="res://assets/objects/pets/drone/industrial_drone_-_rigged_and_animated.glb" id="2_58yew"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7njp2"]
+radius = 0.119662
+height = 0.4
+
+[node name="Drone" instance=ExtResource("1_rg2j8")]
+idle_animation = "Idle"
+poke_animations = Array[String](["Evade", "Scan", "Shoot_Evade"])
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CapsuleShape3D_7njp2")
+
+[node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("2_58yew")]
