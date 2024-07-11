@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx3na44g7dj65"]
+
+[ext_resource type="PackedScene" uid="uid://dlcfi7dsnrdlp" path="res://assets/objects/scenes/placeable/placeable.tscn" id="1_yjt4m"]
+[ext_resource type="Script" path="res://assets/objects/scenes/pet/pet.gd" id="2_soft0"]
+
+[node name="Pet" instance=ExtResource("1_yjt4m")]
+script = ExtResource("2_soft0")
+snap_angle = 20.0
+ground_snap = true

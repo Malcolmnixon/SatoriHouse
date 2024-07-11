@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw3by6pgyitx6"]
+[gd_scene load_steps=8 format=3 uid="uid://dw3by6pgyitx6"]
 
 [ext_resource type="Script" path="res://assets/menu/menu.gd" id="1_4wrla"]
 [ext_resource type="Theme" uid="uid://ejuwnpkem3ex" path="res://assets/touch_theme.tres" id="2_gx5fp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://sncmuupkqlfm" path="res://assets/objects/props_library.tres" id="4_xh3d5"]
 [ext_resource type="Resource" uid="uid://ctbjosviisir5" path="res://assets/objects/sounds_library.tres" id="5_2sm6x"]
 [ext_resource type="Resource" uid="uid://b7vhlw7hobfsp" path="res://assets/objects/plants_library.tres" id="5_3od4f"]
+[ext_resource type="Resource" uid="uid://dmeeh3dlhwlcv" path="res://assets/objects/pets_library.tres" id="7_c4v7g"]
 
 [node name="Menu" type="Control"]
 custom_minimum_size = Vector2(500, 400)
@@ -88,6 +89,12 @@ visible = false
 layout_mode = 2
 library = ExtResource("5_2sm6x")
 metadata/_tab_index = 3
+
+[node name="Pets" parent="TabContainer" instance=ExtResource("3_jti5y")]
+visible = false
+layout_mode = 2
+library = ExtResource("7_c4v7g")
+metadata/_tab_index = 4
 
 [connection signal="toggled" from="TabContainer/Options/VBoxContainer/ShowAudio" to="." method="_on_show_audio_toggled"]
 [connection signal="toggled" from="TabContainer/Options/VBoxContainer/DeleteOnTouch" to="." method="_on_delete_on_touch_toggled"]
