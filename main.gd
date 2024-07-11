@@ -23,7 +23,7 @@ func _on_show_audio(p_visible : bool) -> void:
 
 func _on_create_decoration(p_decoration : Decoration) -> void:
 	# Get the creation position
-	var pos : Vector3 = %XRCamera3D.to_global(Vector3(0, 0, -0.5))
+	var pos : Vector3 = %XRCamera3D.to_global(Vector3(0, -0.2, -0.8))
 
 	# Create the instance
 	var packed_scene : PackedScene = load(p_decoration.instance_scene)

@@ -9,14 +9,18 @@
 size = Vector3(0.17, 0.4, 0.17)
 
 [node name="OldJapaneseLamp" instance=ExtResource("1_s2bcc")]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.2, 0)
 
 [node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199914, 0)
 shape = SubResource("BoxShape3D_2haj8")
 
 [node name="JapaneseLamp" parent="." index="1" instance=ExtResource("2_uwny3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199914, 0)
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_40472")]
-transform = Transform3D(-4.37114e-08, -4.37114e-08, 1, -1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, -0.0839725, 0.191247, -0.0470373)
+transform = Transform3D(-4.37114e-08, -4.37114e-08, 1, -1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, -0.0839725, 0.391161, -0.0470373)
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("4_66wvo")]
-transform = Transform3D(4.37114e-08, -4.37114e-08, 1, 1, -8.74228e-08, -4.37114e-08, 8.74228e-08, 1, 4.37114e-08, -0.084, 0.191, 0.047)
+transform = Transform3D(4.37114e-08, -4.37114e-08, 1, 1, -8.74228e-08, -4.37114e-08, 8.74228e-08, 1, 4.37114e-08, -0.084, 0.390914, 0.047)

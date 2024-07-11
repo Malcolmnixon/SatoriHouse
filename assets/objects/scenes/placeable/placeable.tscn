@@ -6,3 +6,5 @@
 [node name="Placeable" instance=ExtResource("1_5fw0b")]
 freeze = true
 script = ExtResource("2_fcqo3")
+snap_angle = null
+ground_snap = null

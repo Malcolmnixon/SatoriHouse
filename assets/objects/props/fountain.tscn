@@ -14,7 +14,6 @@ keep_compressed_buffer = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yaq48"]
 resource_name = "lambert1"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = SubResource("PortableCompressedTexture2D_t5iib")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1ddi3"]
@@ -224,53 +223,46 @@ _data = {
 }
 
 [node name="Fountain" instance=ExtResource("1_j6abv")]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.07, 0)
+snap_angle = 20.0
+ground_snap = true
 
 [node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.073, 0)
 shape = SubResource("CylinderShape3D_am05e")
 
 [node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("2_2u2da")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.072, 0)
 
 [node name="Sketchfab_model" parent="Sketchfab_Scene" index="0"]
 transform = Transform3D(1.42857, 0, 0, 0, 3.17207e-16, 1.42857, 0, -1.42857, 3.17207e-16, 0, 0, 0)
 
-[node name="6756fd20273b4b0fbd2ec4393f74602f_fbx" parent="Sketchfab_Scene/Sketchfab_model" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
-
-[node name="Fountain_01" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-
 [node name="SM_Fountain_01_lambert1_0" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01/SM_Fountain_01" index="0"]
 mesh = SubResource("ArrayMesh_0rked")
-skeleton = NodePath("")
 
 [node name="AM_WaterSplasheSmall_01" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.755388, 0)
 
 [node name="AM_WaterSplasheSmall_01_lambert1_0" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01/AM_WaterSplasheSmall_01" index="0"]
 mesh = SubResource("ArrayMesh_ilgn4")
-skeleton = NodePath("")
 
 [node name="AM_WaterSplasheBig_01" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.063099, 0)
 
 [node name="AM_WaterSplasheBig_01_lambert1_0" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01/AM_WaterSplasheBig_01" index="0"]
 mesh = SubResource("ArrayMesh_pw5ls")
-skeleton = NodePath("")
 
 [node name="AM_WaterPound_01" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01" index="3"]
 transform = Transform3D(-0.592614, 2.21108e-16, -0.805487, 7.25743e-17, 1, 2.21108e-16, 0.805487, 7.25743e-17, -0.592614, 0, 0, 0)
 
 [node name="AM_WaterPound_01_lambert1_0" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01/AM_WaterPound_01" index="0"]
 mesh = SubResource("ArrayMesh_bu03f")
-skeleton = NodePath("")
 
 [node name="AM_WaterFall_01" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01" index="4"]
 transform = Transform3D(1, 0, 0, 0, -0.381864, -0.924219, 0, 0.924219, -0.381864, 1.2207e-05, 8.2945, 5.80102)
 
 [node name="AM_WaterFall_01_lambert1_0" parent="Sketchfab_Scene/Sketchfab_model/6756fd20273b4b0fbd2ec4393f74602f_fbx/Object_2/RootNode/Fountain_01/AM_WaterFall_01" index="0"]
 mesh = SubResource("ArrayMesh_q1680")
-skeleton = NodePath("")
 
 [node name="AnimationPlayer" parent="Sketchfab_Scene" index="1"]
 libraries = {
