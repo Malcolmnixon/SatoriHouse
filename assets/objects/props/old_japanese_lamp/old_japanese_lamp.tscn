@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://b08u6h1qfkbqb"]
+
+[ext_resource type="PackedScene" uid="uid://dlcfi7dsnrdlp" path="res://assets/objects/scenes/decoration/decoration.tscn" id="1_s2bcc"]
+[ext_resource type="Resource" uid="uid://btitimxqrkwaj" path="res://assets/objects/props/old_japanese_lamp/old_japanese_lamp_type.tres" id="2_dr8am"]
+[ext_resource type="PackedScene" uid="uid://ot4u26xk4l3v" path="res://assets/objects/props/old_japanese_lamp/old_japanese_lamp__andon.glb" id="2_uwny3"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_40472"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_66wvo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2haj8"]
+size = Vector3(0.17, 0.4, 0.17)
+
+[node name="OldJapaneseLamp" instance=ExtResource("1_s2bcc")]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.2, 0)
+type = ExtResource("2_dr8am")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199914, 0)
+shape = SubResource("BoxShape3D_2haj8")
+
+[node name="JapaneseLamp" parent="." index="1" instance=ExtResource("2_uwny3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199914, 0)
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_40472")]
+transform = Transform3D(-4.37114e-08, -4.37114e-08, 1, -1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, -0.0839725, 0.391161, -0.0470373)
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("4_66wvo")]
+transform = Transform3D(4.37114e-08, -4.37114e-08, 1, 1, -8.74228e-08, -4.37114e-08, 8.74228e-08, 1, 4.37114e-08, -0.084, 0.390914, 0.047)

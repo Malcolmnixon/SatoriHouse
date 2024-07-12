@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://cmvebfn57ddgf"]
+
+[ext_resource type="Texture2D" uid="uid://c1qd04d57tcfa" path="res://assets/objects/props/mossy_stone/mossy_stone.png" id="1_fki42"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_est3q"]
+
+[resource]
+script = ExtResource("2_est3q")
+description = "Mossy Stone"
+image = ExtResource("1_fki42")
+instance_scene = "res://assets/objects/props/mossy_stone/mossy_stone.tscn"

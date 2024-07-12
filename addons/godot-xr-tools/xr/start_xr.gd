@@ -92,6 +92,18 @@ func get_xr_viewport() -> Viewport:
 	return get_viewport()
 
 
+## End the XR experience
+func end_xr() -> void:
+	# For WebXR drop the interactive experience and go back to the web page
+	if xr_interface is WebXRInterface:
+		# Uninitialize the WebXR interface
+		xr_interface.uninitialize()
+		return
+
+	# Terminate the application
+	get_tree().quit()
+
+
 # Check for configuration issues
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray()

@@ -2,11 +2,11 @@ extends Control
 
 
 func _on_save_button_pressed() -> void:
-	Game.save()
+	Game.save_pressed()
 
 
 func _on_quit_button_pressed() -> void:
-	Game.quit()
+	Game.quit_pressed()
 
 
 func _on_show_audio_toggled(toggled_on: bool) -> void:

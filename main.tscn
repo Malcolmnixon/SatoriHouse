@@ -151,6 +151,7 @@ transform = Transform3D(0.309975, -0.144544, -0.939693, 0.422618, 0.906308, 0, 0
 unique_name_in_owner = true
 
 [node name="StartXR" parent="." instance=ExtResource("4_6r5jv")]
+unique_name_in_owner = true
 enable_passthrough = true
 
 [editable path="XROrigin3D/LeftTrackedHand/LeftHandHumanoid2"]

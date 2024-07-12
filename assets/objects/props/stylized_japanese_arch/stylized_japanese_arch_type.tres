@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://y02wm7mp6hif"]
+
+[ext_resource type="Texture2D" uid="uid://djf6jqsdqnct4" path="res://assets/objects/props/stylized_japanese_arch/stylized_japanese_arch.png" id="1_25h57"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_p1f5q"]
+
+[resource]
+script = ExtResource("2_p1f5q")
+description = "Stylized Japanese Arch"
+image = ExtResource("1_25h57")
+instance_scene = "res://assets/objects/props/stylized_japanese_arch/stylized_japanese_arch.tscn"

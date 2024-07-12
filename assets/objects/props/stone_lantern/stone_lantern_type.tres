@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://bu8lp08fjrrye"]
+
+[ext_resource type="Texture2D" uid="uid://cy4q8nw4o3j48" path="res://assets/objects/props/stone_lantern/stone_lantern.png" id="1_pb7qj"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_fd76l"]
+
+[resource]
+script = ExtResource("2_fd76l")
+description = "Stone Lantern"
+image = ExtResource("1_pb7qj")
+instance_scene = "res://assets/objects/props/stone_lantern/stone_lantern.tscn"

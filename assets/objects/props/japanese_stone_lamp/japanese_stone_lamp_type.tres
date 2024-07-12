@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://bddiab46os1um"]
+
+[ext_resource type="Texture2D" uid="uid://bv0l5i7mm1wln" path="res://assets/objects/props/japanese_stone_lamp/japanese_stone_lamp.png" id="1_wre6n"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_1xr4d"]
+
+[resource]
+script = ExtResource("2_1xr4d")
+description = "Japanese Stone Lamp"
+image = ExtResource("1_wre6n")
+instance_scene = "res://assets/objects/props/japanese_stone_lamp/japanese_stone_lamp.tscn"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://ceufjsyoeuxyu"]
+
+[ext_resource type="Texture2D" uid="uid://ds4hk76r67i5r" path="res://assets/objects/pets/drone/drone.png" id="1_f55uv"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_echml"]
+
+[resource]
+script = ExtResource("2_echml")
+description = "Drone"
+image = ExtResource("1_f55uv")
+instance_scene = "res://assets/objects/pets/drone/drone.tscn"

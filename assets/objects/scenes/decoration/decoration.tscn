@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlcfi7dsnrdlp"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_5fw0b"]
+[ext_resource type="Script" path="res://assets/objects/scenes/decoration/decoration.gd" id="2_fcqo3"]
+
+[node name="Decoration" instance=ExtResource("1_5fw0b")]
+freeze = true
+script = ExtResource("2_fcqo3")
+snap_angle = 20.0
+ground_snap = true

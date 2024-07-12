@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://dvo50l1mbx0r1"]
+
+[ext_resource type="Texture2D" uid="uid://dwxt3baf3eaxw" path="res://assets/objects/sounds/forest/forest.png" id="1_31h40"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_g06pd"]
+
+[resource]
+script = ExtResource("2_g06pd")
+description = "Forest"
+image = ExtResource("1_31h40")
+instance_scene = "res://assets/objects/sounds/forest/forest.tscn"

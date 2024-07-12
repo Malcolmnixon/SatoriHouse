@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://db40ls8ony57t"]
+
+[ext_resource type="Texture2D" uid="uid://bxm32mbt0578d" path="res://assets/objects/sounds/water/water.png" id="1_015l8"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_6wl2o"]
+
+[resource]
+script = ExtResource("2_6wl2o")
+description = "Water"
+image = ExtResource("1_015l8")
+instance_scene = "res://assets/objects/sounds/water/water.tscn"

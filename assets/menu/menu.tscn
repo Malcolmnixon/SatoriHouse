@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://assets/menu/menu.gd" id="1_4wrla"]
 [ext_resource type="Theme" uid="uid://ejuwnpkem3ex" path="res://assets/touch_theme.tres" id="2_gx5fp"]
 [ext_resource type="PackedScene" uid="uid://ywh548qght10" path="res://assets/menu/create_page.tscn" id="3_jti5y"]
-[ext_resource type="Resource" uid="uid://sncmuupkqlfm" path="res://assets/objects/props_library.tres" id="4_xh3d5"]
-[ext_resource type="Resource" uid="uid://ctbjosviisir5" path="res://assets/objects/sounds_library.tres" id="5_2sm6x"]
-[ext_resource type="Resource" uid="uid://b7vhlw7hobfsp" path="res://assets/objects/plants_library.tres" id="5_3od4f"]
-[ext_resource type="Resource" uid="uid://dmeeh3dlhwlcv" path="res://assets/objects/pets_library.tres" id="7_c4v7g"]
+[ext_resource type="Resource" uid="uid://sncmuupkqlfm" path="res://assets/objects/props/props_library.tres" id="4_xh3d5"]
+[ext_resource type="Resource" uid="uid://ctbjosviisir5" path="res://assets/objects/sounds/sounds_library.tres" id="5_2sm6x"]
+[ext_resource type="Resource" uid="uid://b7vhlw7hobfsp" path="res://assets/objects/plants/plants_library.tres" id="5_3od4f"]
+[ext_resource type="Resource" uid="uid://dmeeh3dlhwlcv" path="res://assets/objects/pets/pets_library.tres" id="7_c4v7g"]
 
 [node name="Menu" type="Control"]
 custom_minimum_size = Vector2(500, 400)
@@ -60,6 +60,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="SaveButton" type="Button" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Save"

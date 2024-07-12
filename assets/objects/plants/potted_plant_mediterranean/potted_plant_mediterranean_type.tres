@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://v8lb0nv20f5b"]
+
+[ext_resource type="Texture2D" uid="uid://41rgmmxnga5" path="res://assets/objects/plants/potted_plant_mediterranean/potted_plant_mediterranean.png" id="1_5ueiq"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_2i7fk"]
+
+[resource]
+script = ExtResource("2_2i7fk")
+description = "Potted Plant Mediterranean"
+image = ExtResource("1_5ueiq")
+instance_scene = "res://assets/objects/plants/potted_plant_mediterranean/potted_plant_mediterranean.tscn"

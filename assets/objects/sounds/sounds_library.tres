@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationLibrary" load_steps=5 format=3 uid="uid://ctbjosviisir5"]
+
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="1_7085h"]
+[ext_resource type="Resource" uid="uid://dvo50l1mbx0r1" path="res://assets/objects/sounds/forest/forest_type.tres" id="2_e5gol"]
+[ext_resource type="Resource" uid="uid://db40ls8ony57t" path="res://assets/objects/sounds/water/water_type.tres" id="3_5lshi"]
+[ext_resource type="Script" path="res://assets/menu/decoration_library.gd" id="3_6gv8p"]
+
+[resource]
+script = ExtResource("3_6gv8p")
+decorations = Array[ExtResource("1_7085h")]([ExtResource("2_e5gol"), ExtResource("3_5lshi")])

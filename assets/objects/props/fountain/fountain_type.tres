@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://bhtlhbos1om5a"]
+
+[ext_resource type="Texture2D" uid="uid://comvplgesmog0" path="res://assets/objects/props/fountain/fountain_prop.png" id="1_msiqm"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_6uiwp"]
+
+[resource]
+script = ExtResource("2_6uiwp")
+description = "Fountain"
+image = ExtResource("1_msiqm")
+instance_scene = "res://assets/objects/props/fountain/fountain.tscn"

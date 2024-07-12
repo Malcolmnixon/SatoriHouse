@@ -1,6 +1,6 @@
 @tool
 class_name Pet
-extends Placeable
+extends Decoration
 
 
 ## Idle Animations
