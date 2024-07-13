@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbceiu7ra3r51"]
+[gd_scene load_steps=25 format=3 uid="uid://cbceiu7ra3r51"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_hk7kl"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_law21"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_set.gd" id="9_4d3g8"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="12_q5awc"]
 [ext_resource type="PackedScene" uid="uid://2g4meocaiaok" path="res://assets/menu/hand_menu.tscn" id="14_qvb2p"]
+[ext_resource type="PackedScene" uid="uid://cempwru6nstx8" path="res://assets/ar/global_mesh.tscn" id="15_wi80q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wn0fy"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -89,7 +90,10 @@ bone_idx = 9
 
 [node name="LeftFingerPoke" parent="XROrigin3D/LeftTrackedHand/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D/BoneAttachment3D" instance=ExtResource("2_b5jya")]
 unique_name_in_owner = true
-mask = 2151743487
+teleport_distance = 0.2
+layer = 2
+mask = 2151677952
+push_bodies = false
 
 [node name="HandPoseDetector" parent="XROrigin3D/LeftTrackedHand" instance=ExtResource("2_drp2d")]
 hand_pose_set = SubResource("Resource_uynfr")
@@ -114,7 +118,9 @@ bone_idx = 9
 
 [node name="RightFingerPoke" parent="XROrigin3D/RightTrackedHand/RightHandHumanoid2/RightHandHumanoid/Skeleton3D/BoneAttachment3D" instance=ExtResource("2_b5jya")]
 unique_name_in_owner = true
-mask = 2151743487
+layer = 0
+mask = 2151677952
+push_bodies = false
 
 [node name="HandPoseDetector" parent="XROrigin3D/RightTrackedHand" instance=ExtResource("2_drp2d")]
 hand_pose_set = SubResource("Resource_uynfr")
@@ -146,6 +152,13 @@ ranged_enable = false
 
 [node name="HandMenu" parent="XROrigin3D/RightVirtualController" instance=ExtResource("14_qvb2p")]
 transform = Transform3D(0.309975, -0.144544, -0.939693, 0.422618, 0.906308, 0, 0.85165, -0.397131, 0.34202, -0.03, 0.05, -0.065)
+
+[node name="SceneManager" type="OpenXRFbSceneManager" parent="XROrigin3D"]
+scenes/global_mesh = ExtResource("15_wi80q")
+unique_name_in_owner = true
+
+[node name="AnchorManager" type="OpenXRFbSpatialAnchorManager" parent="XROrigin3D"]
+unique_name_in_owner = true
 
 [node name="Decorations" type="Node3D" parent="."]
 unique_name_in_owner = true

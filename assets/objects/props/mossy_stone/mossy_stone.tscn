@@ -11,6 +11,7 @@ points = PackedVector3Array(0.342064, 0.115701, 0.573379, 0.372947, -0.0249608, 
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.64, 0)
 type = ExtResource("2_r1vjw")
+supports_physics = false
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-4.33046e-08, -0.999918, -0.0128278, 0.115093, 0.0127426, -0.993273, 0.993355, -0.00147644, 0.115084, -0.0580487, 0.529832, 0)

@@ -1,25 +1,31 @@
 extends Node
 
 
+signal show_audio(p_visible : bool)
+
+signal physics_changed
+
+signal create_decoration(p_decoration : DecorationType)
+
+signal clear
+
 signal save
 
 signal quit
 
-signal show_audio(p_visible : bool)
-
-signal create_decoration(p_decoration : DecorationType)
 
 
-# Delete on touch flag
+## Test if a global mesh exists
+var has_global_mesh : bool = false
+
+## Should objects be deleted on touch
 var delete_on_touch : bool = false
 
+## Is physics enabled
+var physics_enabled : bool = false
 
-func save_pressed() -> void:
-	save.emit()
-
-
-func quit_pressed() -> void:
-	quit.emit()
+## Is save supported
+var can_save : bool = false
 
 
 func show_audio_toggled(p_visible : bool) -> void:
@@ -28,3 +34,20 @@ func show_audio_toggled(p_visible : bool) -> void:
 
 func create_decoration_selected(p_decoration : DecorationType) -> void:
 	create_decoration.emit(p_decoration)
+
+
+func physics_toggled(p_physics_enabled : bool) -> void:
+	physics_enabled = p_physics_enabled
+	physics_changed.emit()
+
+
+func clear_pressed() -> void:
+	clear.emit()
+
+
+func save_pressed() -> void:
+	save.emit()
+
+
+func quit_pressed() -> void:
+	quit.emit()

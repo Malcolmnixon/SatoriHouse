@@ -15,6 +15,7 @@ size = Vector3(3.2283, 0.833283, 0.276245)
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 1.6, 0)
 type = ExtResource("2_x0ic4")
+supports_physics = false
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.999962, 0.00872654, 0, -0.00872654, 0.999962, 0, 0, 0, 1, -1.08422, 1.25, 0)

@@ -48,6 +48,14 @@ size_flags_horizontal = 4
 toggle_mode = true
 text = "Delete on Touch"
 
+[node name="EnablePhysics" type="Button" parent="TabContainer/Options/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(299, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Enable Physics"
+
 [node name="Control" type="Control" parent="TabContainer/Options/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -59,13 +67,23 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
+[node name="ClearButton" type="Button" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Clear"
+
+[node name="Pad1" type="Control" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
 [node name="SaveButton" type="Button" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Save"
 
-[node name="Control" type="Control" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
+[node name="Pad2" type="Control" parent="TabContainer/Options/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
@@ -99,5 +117,7 @@ metadata/_tab_index = 4
 
 [connection signal="toggled" from="TabContainer/Options/VBoxContainer/ShowAudio" to="." method="_on_show_audio_toggled"]
 [connection signal="toggled" from="TabContainer/Options/VBoxContainer/DeleteOnTouch" to="." method="_on_delete_on_touch_toggled"]
+[connection signal="toggled" from="TabContainer/Options/VBoxContainer/EnablePhysics" to="." method="_on_enable_physics_toggled"]
+[connection signal="pressed" from="TabContainer/Options/VBoxContainer/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]
 [connection signal="pressed" from="TabContainer/Options/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="TabContainer/Options/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

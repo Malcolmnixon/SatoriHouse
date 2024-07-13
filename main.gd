@@ -12,6 +12,10 @@ func _ready() -> void:
 	Game.show_audio.connect(_on_show_audio)
 	Game.create_decoration.connect(_on_create_decoration)
 
+	# Test if the anchor manager is real
+	if %AnchorManager.is_class("OpenXRFbSpatialAnchorManager"):
+		Game.can_save = true
+
 
 func _on_show_audio(p_visible : bool) -> void:
 	if p_visible:

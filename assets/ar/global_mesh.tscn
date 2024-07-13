@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cempwru6nstx8"]
+
+[ext_resource type="Script" path="res://assets/ar/global_mesh.gd" id="1_ry6id"]
+
+[node name="SceneAnchor" type="StaticBody3D"]
+script = ExtResource("1_ry6id")

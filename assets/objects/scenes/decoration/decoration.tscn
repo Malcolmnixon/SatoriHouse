@@ -4,7 +4,11 @@
 [ext_resource type="Script" path="res://assets/objects/scenes/decoration/decoration.gd" id="2_fcqo3"]
 
 [node name="Decoration" instance=ExtResource("1_5fw0b")]
+collision_layer = 4194308
 freeze = true
 script = ExtResource("2_fcqo3")
+type = null
 snap_angle = 20.0
 ground_snap = true
+supports_physics = true
+second_hand_grab = 1

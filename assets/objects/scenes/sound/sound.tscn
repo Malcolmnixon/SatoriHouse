@@ -26,6 +26,7 @@ radial_segments = 16
 rings = 8
 
 [node name="Sound" instance=ExtResource("1_5adsa")]
+supports_physics = false
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("SphereShape3D_kc2wm")

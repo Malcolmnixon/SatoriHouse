@@ -15,11 +15,25 @@ signal touched
 ## Snap to ground
 @export var ground_snap : bool = true
 
+## True if the object should use physics if availab.e
+@export var supports_physics : bool = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+
+	# Skip if editor
+	if Engine.is_editor_hint():
+		return
+
 	dropped.connect(_on_dropped)
+	Game.clear.connect(_on_clear)
+	Game.physics_changed.connect(_on_physics_changed)
+
+	# If global mesh is available and we support physics then unfreeze
+	if Game.physics_enabled and supports_physics:
+		freeze = false
 
 
 # Called when this object is touched
@@ -65,3 +79,20 @@ func _on_dropped(_pickable) -> void:
 
 	# Write the snapped transform
 	global_transform = Transform3D(Basis(vec_x, vec_y, vec_z), vec_o).orthonormalized()
+
+
+func _on_clear() -> void:
+	queue_free()
+
+
+func _on_physics_changed() -> void:
+	# Test if we should freeze when dropped
+	var freeze_when_dropped := true
+	if Game.physics_enabled and supports_physics:
+		freeze_when_dropped = false
+
+	# Apply option
+	if is_picked_up():
+		restore_freeze = freeze_when_dropped
+	else:
+		freeze = freeze_when_dropped
