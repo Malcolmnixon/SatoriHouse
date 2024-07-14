@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbceiu7ra3r51"]
+[gd_scene load_steps=26 format=3 uid="uid://cbceiu7ra3r51"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_hk7kl"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_law21"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="12_q5awc"]
 [ext_resource type="PackedScene" uid="uid://2g4meocaiaok" path="res://assets/menu/hand_menu.tscn" id="14_qvb2p"]
 [ext_resource type="PackedScene" uid="uid://cempwru6nstx8" path="res://assets/ar/global_mesh.tscn" id="15_wi80q"]
+[ext_resource type="PackedScene" uid="uid://d3ku8d8g5ee7o" path="res://assets/objects/props/manual/manual.tscn" id="16_jsib0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wn0fy"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -162,6 +163,9 @@ unique_name_in_owner = true
 
 [node name="Decorations" type="Node3D" parent="."]
 unique_name_in_owner = true
+
+[node name="Manual" parent="Decorations" instance=ExtResource("16_jsib0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.8)
 
 [node name="StartXR" parent="." instance=ExtResource("4_6r5jv")]
 unique_name_in_owner = true

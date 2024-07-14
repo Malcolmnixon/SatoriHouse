@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk06hc0obdt8y"]
+
+[ext_resource type="Theme" uid="uid://ejuwnpkem3ex" path="res://assets/touch_theme.tres" id="1_aepmq"]
+[ext_resource type="Script" path="res://assets/objects/props/manual/manual_2d.gd" id="2_1w5o1"]
+[ext_resource type="Texture2D" uid="uid://bmp1b0bewv8na" path="res://assets/logo/title.png" id="2_31alc"]
+[ext_resource type="Texture2D" uid="uid://b4kxi3vvfxvsp" path="res://assets/objects/props/manual/menu-hand.png" id="3_d6ljh"]
+[ext_resource type="Texture2D" uid="uid://bj0bjdxx1odx2" path="res://assets/objects/props/manual/delete-on-touch.png" id="4_75cpw"]
+[ext_resource type="Texture2D" uid="uid://dkyqkghj4jbqy" path="res://assets/objects/props/manual/creating.png" id="5_swk3x"]
+
+[node name="Manual2D" type="PanelContainer"]
+custom_minimum_size = Vector2(800, 600)
+offset_right = 800.0
+offset_bottom = 600.0
+theme = ExtResource("1_aepmq")
+script = ExtResource("2_1w5o1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Contents" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/Contents"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Contents/Header"]
+layout_mode = 2
+texture = ExtResource("2_31alc")
+stretch_mode = 4
+
+[node name="Tab" type="TabContainer" parent="MarginContainer/Contents"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+tabs_visible = false
+
+[node name="Intro" type="HBoxContainer" parent="MarginContainer/Contents/Tab"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Contents/Tab/Intro"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_d6ljh")
+stretch_mode = 4
+
+[node name="Pad" type="Control" parent="MarginContainer/Contents/Tab/Intro"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Contents/Tab/Intro"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Satori House is an AR experience where users can populate their environment with interesting objects, sounds, and pets.
+
+To bring up the menu, hold your hand in a pointing pose with the thumb up, and the menu should appear between the thumb and index fingers. Menu options can be selected by poking them with your other index finger.
+"
+fit_content = true
+
+[node name="Deleting" type="HBoxContainer" parent="MarginContainer/Contents/Tab"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Contents/Tab/Deleting"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_75cpw")
+stretch_mode = 4
+
+[node name="Pad" type="Control" parent="MarginContainer/Contents/Tab/Deleting"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Contents/Tab/Deleting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "To delete specific objects from the world, toggle the \"Delete on Touch\" button on the Options tab, and then touch objects with your index finger.
+
+To clear the entire scene, use the \"Clear\" button on the bottom of the Options tab."
+
+[node name="Creating" type="HBoxContainer" parent="MarginContainer/Contents/Tab"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Contents/Tab/Creating"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_swk3x")
+stretch_mode = 4
+
+[node name="Pad" type="Control" parent="MarginContainer/Contents/Tab/Creating"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Contents/Tab/Creating"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "To create new object, select the tab with the type of object to create. Then scroll down and pick the desired object.
+
+Once selected, press the \"Create\" button and the object will appear. It can then be grabbed and moved to the desired location.
+"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Contents"]
+layout_mode = 2
+
+[node name="Navigation" type="HBoxContainer" parent="MarginContainer/Contents"]
+layout_mode = 2
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="MarginContainer/Contents/Navigation"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Previous"
+
+[node name="Pad1" type="Control" parent="MarginContainer/Contents/Navigation"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="MarginContainer/Contents/Navigation"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Close
+"
+
+[node name="Pad2" type="Control" parent="MarginContainer/Contents/Navigation"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="NextButton" type="Button" parent="MarginContainer/Contents/Navigation"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Next
+"
+
+[connection signal="pressed" from="MarginContainer/Contents/Navigation/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Contents/Navigation/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Contents/Navigation/NextButton" to="." method="_on_next_button_pressed"]

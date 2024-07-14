@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://dlgp50gqjjt54"]
+
+[ext_resource type="Texture2D" uid="uid://b7j65c6uvqudf" path="res://assets/objects/props/manual/manual.png" id="1_q6dhc"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_vgphy"]
+
+[resource]
+script = ExtResource("2_vgphy")
+description = "Manual"
+image = ExtResource("1_q6dhc")
+instance_scene = "res://assets/objects/props/manual/manual.tscn"

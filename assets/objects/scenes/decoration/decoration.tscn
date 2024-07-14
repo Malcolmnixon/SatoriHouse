@@ -11,4 +11,5 @@ type = null
 snap_angle = 20.0
 ground_snap = true
 supports_physics = true
+ranged_grab_method = 0
 second_hand_grab = 1
