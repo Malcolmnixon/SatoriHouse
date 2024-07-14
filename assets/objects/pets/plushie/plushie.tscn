@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddiklmf5k5wk1"]
+[gd_scene load_steps=7 format=3 uid="uid://ddiklmf5k5wk1"]
 
 [ext_resource type="PackedScene" uid="uid://cx3na44g7dj65" path="res://assets/objects/scenes/pet/pet.tscn" id="1_f6agc"]
 [ext_resource type="PackedScene" uid="uid://c3bdt855fysg5" path="res://assets/objects/pets/plushie/plushie.gltf" id="2_48bdq"]
@@ -6,15 +6,8 @@
 [ext_resource type="Resource" uid="uid://ccw6qkjt63n03" path="res://assets/objects/pets/plushie/plushie_animation_squeak.tres" id="3_uum2i"]
 [ext_resource type="Resource" uid="uid://kl51xg42m4aq" path="res://assets/objects/pets/plushie/plushie_type.tres" id="4_6xfwp"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_vln48"]
-radius = 0.0668445
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_56biu"]
-radius = 0.017922
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7hr14"]
-radius = 0.0199603
-height = 0.0566462
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c3kpj"]
+points = PackedVector3Array(0.0199127, 0.0731446, 0.0692479, 0.0196901, 0.0102249, -0.0838654, -0.0406839, 0.00561634, -0.0820491, -0.0319245, 0.143967, 0.00638574, -0.102546, 0.0133046, 0.0240376, 0.105193, 0.0086292, 0.0126329, 0.0704901, 0.119226, 0.00636984, 0.0457548, 0.0451028, -0.0854196, -0.04604, 0.0450883, -0.0818892, -0.0707531, 0.112169, 0.0310983, 0.00651015, 0.0031191, 0.0389455, -0.113166, 0.0274323, -0.0112502, 0.0351572, 0.140425, 0.0381749, 0.112859, 0.0274323, -0.0112661, -0.0707531, 0.115698, -0.000674988, -0.00684714, 0.0463636, 0.0693025, 0.036496, -0.000203839, -0.0710634, -0.101348, 0.00233573, 0.00238167, 0.0740079, 0.105113, 0.0310983, 0.0316172, 0.143967, 0.00638574, -0.0234035, 0.0864114, 0.0653485, -0.0354644, 0.140425, 0.0381749, 0.098721, 0.00977632, 0.0240376, 0.00989437, -0.000666218, 0.0258069, 0.00316895, 0.0197725, 0.0589681, 0.0436423, 0.00580652, -0.0818449, 0.0977414, 0.00229353, -0.00437635, -0.037106, -0.000782136, -0.0749464, 0.0280994, 0.0486165, -0.0854196, 0.112859, 0.0274323, 0.0099161, 0.0231897, 0.043139, 0.0656423, 0.0130883, 0.0962803, 0.0651407)
 
 [node name="Plushie" node_paths=PackedStringArray("audio") instance=ExtResource("1_f6agc")]
 audio = NodePath("AnimationSound")
@@ -22,29 +15,12 @@ poke_animations = Array[ExtResource("2_dn3bn")]([ExtResource("3_uum2i")])
 type = ExtResource("4_6xfwp")
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06271, 0)
-shape = SubResource("SphereShape3D_vln48")
+shape = SubResource("ConvexPolygonShape3D_c3kpj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0952802, 0.0180596, 0)
-shape = SubResource("SphereShape3D_56biu")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095, 0.018, 0)
-shape = SubResource("SphereShape3D_56biu")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0316547, 0.0272144, 0.0700338)
-shape = SubResource("CapsuleShape3D_7hr14")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032, 0.027, 0.07)
-shape = SubResource("CapsuleShape3D_7hr14")
-
-[node name="plushie" parent="." index="5" instance=ExtResource("2_48bdq")]
+[node name="plushie" parent="." index="1" instance=ExtResource("2_48bdq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="AnimationSound" type="AudioStreamPlayer3D" parent="." index="6"]
+[node name="AnimationSound" type="AudioStreamPlayer3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656596, 0.00967616)
 volume_db = -30.0
 unit_size = 2.0

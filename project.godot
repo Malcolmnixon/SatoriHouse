@@ -42,6 +42,10 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_23="UI Objects"
 3d_physics/layer_32="Sound UI Objects"
 
+[physics]
+
+3d/default_linear_damp=1.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

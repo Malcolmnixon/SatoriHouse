@@ -89,7 +89,7 @@ func _load() -> void:
 
 		# Add to the scene
 		%Decorations.add_child(instance)
-		instance.global_position = anchor.global_position
+		instance.global_transform = anchor.global_transform
 
 
 func _save() -> void:

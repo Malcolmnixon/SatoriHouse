@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://dowvpye4geucr"]
+
+[ext_resource type="Texture2D" uid="uid://dtndpydakllrp" path="res://assets/objects/props/stone_table/stone_table.png" id="1_dv3lm"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_fv8wa"]
+
+[resource]
+script = ExtResource("2_fv8wa")
+description = "Stone Table"
+image = ExtResource("1_dv3lm")
+instance_scene = "res://assets/objects/props/stone_table/stone_table.tscn"

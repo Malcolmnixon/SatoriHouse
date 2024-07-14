@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DecorationLibrary" load_steps=10 format=3 uid="uid://sncmuupkqlfm"]
+[gd_resource type="Resource" script_class="DecorationLibrary" load_steps=11 format=3 uid="uid://sncmuupkqlfm"]
 
 [ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="1_kuxku"]
 [ext_resource type="Resource" uid="uid://btitimxqrkwaj" path="res://assets/objects/props/old_japanese_lamp/old_japanese_lamp_type.tres" id="2_x8auv"]
@@ -7,9 +7,10 @@
 [ext_resource type="Resource" uid="uid://bu8lp08fjrrye" path="res://assets/objects/props/stone_lantern/stone_lantern_type.tres" id="5_sndwy"]
 [ext_resource type="Resource" uid="uid://y02wm7mp6hif" path="res://assets/objects/props/stylized_japanese_arch/stylized_japanese_arch_type.tres" id="6_ndg8k"]
 [ext_resource type="Resource" uid="uid://cmvebfn57ddgf" path="res://assets/objects/props/mossy_stone/mossy_stone_type.tres" id="7_f74mm"]
+[ext_resource type="Resource" uid="uid://dowvpye4geucr" path="res://assets/objects/props/stone_table/stone_table_type.tres" id="7_pd3hg"]
 [ext_resource type="Resource" uid="uid://blexm08ffubwu" path="res://assets/objects/props/spherical_lantern/spherical_lantern_type.tres" id="8_eqyq4"]
 [ext_resource type="Script" path="res://assets/menu/decoration_library.gd" id="8_wxrb4"]
 
 [resource]
 script = ExtResource("8_wxrb4")
-decorations = Array[ExtResource("1_kuxku")]([ExtResource("2_x8auv"), ExtResource("3_nvhmw"), ExtResource("4_8sdp2"), ExtResource("5_sndwy"), ExtResource("6_ndg8k"), ExtResource("7_f74mm"), ExtResource("8_eqyq4")])
+decorations = Array[ExtResource("1_kuxku")]([ExtResource("2_x8auv"), ExtResource("8_eqyq4"), ExtResource("4_8sdp2"), ExtResource("5_sndwy"), ExtResource("3_nvhmw"), ExtResource("7_pd3hg"), ExtResource("6_ndg8k"), ExtResource("7_f74mm")])

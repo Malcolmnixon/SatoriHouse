@@ -24,7 +24,6 @@ shape = SubResource("CylinderShape3D_exgux")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(0.999657, -0.0261769, 0, 0.0261769, 0.999657, 0, 0, 0, 1, 1.06568, 1.25, 0)
 shape = SubResource("CylinderShape3D_exgux")
-disabled = true
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232388, 2.35352, 0.000183057)
