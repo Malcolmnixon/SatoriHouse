@@ -3,11 +3,17 @@ class_name Pet
 extends Decoration
 
 
+#@export var idle : PetAnimation
+
+#@export var pokes : 
+
+@export var audio : AudioStreamPlayer3D
+
 ## Idle Animations
 @export var idle_animation : String = "Idle"
 
 ## Poke Animation Chains
-@export var poke_animations : Array[String] = []
+@export var poke_animations : Array[PetAnimation] = []
 
 
 # Animation player
@@ -25,23 +31,21 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
+	# Listen for touches
+	touched.connect(_on_touched)
+
 	# Get the animation player
 	var players := find_children("*", "AnimationPlayer", true, true)
 	if players.size() == 1:
 		_player = players[0] as AnimationPlayer
 
-	# Skip if no player
-	if not _player:
-		return
+	# If animation supported then play the idle animation
+	if _player:
+		# Play the idle animation
+		_player.play(idle_animation)
 
-	# Play the idle animation
-	_player.play(idle_animation)
-
-	# Listen for animation changes
-	_player.animation_finished.connect(_on_animation_finished)
-
-	# Listen for touches
-	touched.connect(_on_touched)
+		# Listen for animation changes
+		_player.animation_finished.connect(_on_animation_finished)
 
 
 # Called when the pet is touched
@@ -56,11 +60,17 @@ func _on_touched() -> void:
 
 	# Pick an animation
 	var i := randi() % poke_animations.size()
-	var queue := poke_animations[i]
+	var animation := poke_animations[i]
 
-	# Start the animation
-	_current = queue.split("|", false)
-	_play_next()
+	# Play the sound
+	if audio and animation.audio:
+		audio.stream = animation.audio
+		audio.play()
+
+	# If animation supported then start the animation
+	if _player:
+		_current = animation.animations.duplicate()
+		_play_next()
 
 
 # Play the next animation

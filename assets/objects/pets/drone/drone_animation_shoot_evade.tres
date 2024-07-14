@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PetAnimation" load_steps=3 format=3 uid="uid://6l4whh3fnk3s"]
+
+[ext_resource type="AudioStream" uid="uid://ncgw2oj5xcth" path="res://assets/objects/pets/drone/420365__bolkmar__sfx-laser-shot-s.wav" id="1_6kf80"]
+[ext_resource type="Script" path="res://assets/objects/scenes/pet/pet_animation.gd" id="2_jlx8a"]
+
+[resource]
+script = ExtResource("2_jlx8a")
+audio = ExtResource("1_6kf80")
+animations = ["Shoot_Evade"]

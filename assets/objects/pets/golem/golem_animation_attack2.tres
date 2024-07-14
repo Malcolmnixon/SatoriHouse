@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PetAnimation" load_steps=3 format=3 uid="uid://bncdvxptfpoic"]
+
+[ext_resource type="AudioStream" uid="uid://cprtrndqjnedf" path="res://assets/objects/pets/golem/505128__mitchanary__monster-roar_7.mp3" id="1_vm0ih"]
+[ext_resource type="Script" path="res://assets/objects/scenes/pet/pet_animation.gd" id="2_yotbm"]
+
+[resource]
+script = ExtResource("2_yotbm")
+audio = ExtResource("1_vm0ih")
+animations = ["Attack2"]

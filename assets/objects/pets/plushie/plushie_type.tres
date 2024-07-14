@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://kl51xg42m4aq"]
+
+[ext_resource type="Texture2D" uid="uid://cikpqq8jjklnd" path="res://assets/objects/pets/plushie/plushie.png" id="1_na0tq"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_0dt1e"]
+
+[resource]
+script = ExtResource("2_0dt1e")
+description = "Plushie"
+image = ExtResource("1_na0tq")
+instance_scene = "res://assets/objects/pets/plushie/plushie.tscn"

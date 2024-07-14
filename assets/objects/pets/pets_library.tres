@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="DecorationLibrary" load_steps=5 format=3 uid="uid://dmeeh3dlhwlcv"]
+[gd_resource type="Resource" script_class="DecorationLibrary" load_steps=6 format=3 uid="uid://dmeeh3dlhwlcv"]
 
 [ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="1_yd4us"]
 [ext_resource type="Resource" uid="uid://c44hy5wceahpd" path="res://assets/objects/pets/golem/golem_type.tres" id="2_83j0k"]
 [ext_resource type="Script" path="res://assets/menu/decoration_library.gd" id="2_wteja"]
 [ext_resource type="Resource" uid="uid://ceufjsyoeuxyu" path="res://assets/objects/pets/drone/drone_type.tres" id="3_slttb"]
+[ext_resource type="Resource" uid="uid://kl51xg42m4aq" path="res://assets/objects/pets/plushie/plushie_type.tres" id="4_khblj"]
 
 [resource]
 script = ExtResource("2_wteja")
-decorations = Array[ExtResource("1_yd4us")]([ExtResource("2_83j0k"), ExtResource("3_slttb")])
+decorations = Array[ExtResource("1_yd4us")]([ExtResource("2_83j0k"), ExtResource("3_slttb"), ExtResource("4_khblj")])

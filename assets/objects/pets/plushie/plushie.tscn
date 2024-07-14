@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddiklmf5k5wk1"]
+
+[ext_resource type="PackedScene" uid="uid://cx3na44g7dj65" path="res://assets/objects/scenes/pet/pet.tscn" id="1_f6agc"]
+[ext_resource type="PackedScene" uid="uid://c3bdt855fysg5" path="res://assets/objects/pets/plushie/plushie.gltf" id="2_48bdq"]
+[ext_resource type="Script" path="res://assets/objects/scenes/pet/pet_animation.gd" id="2_dn3bn"]
+[ext_resource type="Resource" uid="uid://ccw6qkjt63n03" path="res://assets/objects/pets/plushie/plushie_animation_squeak.tres" id="3_uum2i"]
+[ext_resource type="Resource" uid="uid://kl51xg42m4aq" path="res://assets/objects/pets/plushie/plushie_type.tres" id="4_6xfwp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vln48"]
+radius = 0.0668445
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_56biu"]
+radius = 0.017922
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7hr14"]
+radius = 0.0199603
+height = 0.0566462
+
+[node name="Plushie" node_paths=PackedStringArray("audio") instance=ExtResource("1_f6agc")]
+audio = NodePath("AnimationSound")
+poke_animations = Array[ExtResource("2_dn3bn")]([ExtResource("3_uum2i")])
+type = ExtResource("4_6xfwp")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06271, 0)
+shape = SubResource("SphereShape3D_vln48")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0952802, 0.0180596, 0)
+shape = SubResource("SphereShape3D_56biu")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095, 0.018, 0)
+shape = SubResource("SphereShape3D_56biu")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0316547, 0.0272144, 0.0700338)
+shape = SubResource("CapsuleShape3D_7hr14")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032, 0.027, 0.07)
+shape = SubResource("CapsuleShape3D_7hr14")
+
+[node name="plushie" parent="." index="5" instance=ExtResource("2_48bdq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="AnimationSound" type="AudioStreamPlayer3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656596, 0.00967616)
+volume_db = -30.0
+unit_size = 2.0

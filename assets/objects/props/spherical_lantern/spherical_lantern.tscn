@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://di5kadvikdlxi"]
+
+[ext_resource type="PackedScene" uid="uid://dlcfi7dsnrdlp" path="res://assets/objects/scenes/decoration/decoration.tscn" id="1_pbhwf"]
+[ext_resource type="PackedScene" uid="uid://de6u4w3w450i7" path="res://assets/objects/props/spherical_lantern/spherical_japanese_paper_lantern.glb" id="2_qx33o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n5h50"]
+radius = 0.170919
+
+[node name="SphericalLantern" instance=ExtResource("1_pbhwf")]
+supports_physics = false
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("SphereShape3D_n5h50")
+
+[node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("2_qx33o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)

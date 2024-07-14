@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://qlwpuqj2oo5u"]
+[gd_scene load_steps=9 format=3 uid="uid://qlwpuqj2oo5u"]
 
 [ext_resource type="PackedScene" uid="uid://cx3na44g7dj65" path="res://assets/objects/scenes/pet/pet.tscn" id="1_rhwng"]
+[ext_resource type="Script" path="res://assets/objects/scenes/pet/pet_animation.gd" id="2_3lm50"]
 [ext_resource type="Resource" uid="uid://c44hy5wceahpd" path="res://assets/objects/pets/golem/golem_type.tres" id="2_sjwxo"]
+[ext_resource type="Resource" uid="uid://buvj8plgy6xf3" path="res://assets/objects/pets/golem/golem_animation_attack1.tres" id="3_lxp8k"]
 [ext_resource type="PackedScene" uid="uid://b1j6slu6c7plv" path="res://assets/objects/pets/golem/drugdor_the_golem_animated.glb" id="3_x63tj"]
+[ext_resource type="AudioStream" uid="uid://d2456aavdplqm" path="res://assets/objects/pets/golem/87557__daveofdefeat2248__gasmask.wav" id="4_4y8pq"]
+[ext_resource type="Resource" uid="uid://bncdvxptfpoic" path="res://assets/objects/pets/golem/golem_animation_attack2.tres" id="4_qvwpn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xn1t"]
 size = Vector3(0.435, 0.4, 0.218)
 
-[node name="Golem" instance=ExtResource("1_rhwng")]
-idle_animation = "Idle"
-poke_animations = Array[String](["Attack1", "Attack2", "Attack3", "Attack1|Attack2|Attack3"])
+[node name="Golem" node_paths=PackedStringArray("audio") instance=ExtResource("1_rhwng")]
+audio = NodePath("Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode/Armature_15/GLTF_created_0/Skeleton3D/BoneAttachment3D/AnimationSound")
+poke_animations = Array[ExtResource("2_3lm50")]([ExtResource("3_lxp8k"), ExtResource("4_qvwpn")])
 type = ExtResource("2_sjwxo")
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -17,3 +21,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009, 0.2, 0.022)
 shape = SubResource("BoxShape3D_4xn1t")
 
 [node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("3_x63tj")]
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode/Armature_15/GLTF_created_0/Skeleton3D" index="2"]
+transform = Transform3D(0.999639, 0.00843511, 0.0255026, 0.0093893, -0.999261, -0.0375272, 0.0251669, 0.037753, -0.998972, -0.0353754, 0.120977, 0.129025)
+bone_name = "Head_0"
+bone_idx = 3
+
+[node name="BreathingSound" type="AudioStreamPlayer3D" parent="Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode/Armature_15/GLTF_created_0/Skeleton3D/BoneAttachment3D" index="0"]
+stream = ExtResource("4_4y8pq")
+volume_db = -40.0
+unit_size = 2.0
+autoplay = true
+
+[node name="AnimationSound" type="AudioStreamPlayer3D" parent="Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode/Armature_15/GLTF_created_0/Skeleton3D/BoneAttachment3D" index="1"]
+volume_db = -40.0
+unit_size = 2.0
+
+[editable path="Sketchfab_Scene"]

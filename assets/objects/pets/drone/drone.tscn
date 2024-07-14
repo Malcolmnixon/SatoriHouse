@@ -1,23 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy8lohwhhiyu0"]
+[gd_scene load_steps=8 format=3 uid="uid://cy8lohwhhiyu0"]
 
 [ext_resource type="PackedScene" uid="uid://cx3na44g7dj65" path="res://assets/objects/scenes/pet/pet.tscn" id="1_rg2j8"]
 [ext_resource type="Resource" uid="uid://ceufjsyoeuxyu" path="res://assets/objects/pets/drone/drone_type.tres" id="2_31otj"]
 [ext_resource type="PackedScene" uid="uid://5wfijtk438up" path="res://assets/objects/pets/drone/industrial_drone_-_rigged_and_animated.glb" id="2_58yew"]
+[ext_resource type="Script" path="res://assets/objects/scenes/pet/pet_animation.gd" id="2_m30d5"]
+[ext_resource type="Resource" uid="uid://6l4whh3fnk3s" path="res://assets/objects/pets/drone/drone_animation_shoot_evade.tres" id="3_xf12j"]
+[ext_resource type="AudioStream" uid="uid://sstdq11kgn3r" path="res://assets/objects/pets/drone/407540__sojan__sci-fi-engine-loop.wav" id="4_fwfc4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7njp2"]
 radius = 0.119662
 height = 0.4
 
-[node name="Drone" instance=ExtResource("1_rg2j8")]
-idle_animation = "Idle"
-poke_animations = Array[String](["Evade", "Scan", "Shoot_Evade"])
+[node name="Drone" node_paths=PackedStringArray("audio") instance=ExtResource("1_rg2j8")]
+audio = NodePath("Sketchfab_Scene/Sketchfab_model/Industrial_fbx/Object_2/RootNode/Industrial-Security-Drone/Object_5/Skeleton3D/BoneAttachment3D/AnimationSound")
+poke_animations = Array[ExtResource("2_m30d5")]([ExtResource("3_xf12j")])
 type = ExtResource("2_31otj")
 supports_physics = false
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="0"]
+[node name="Sketchfab_Scene" parent="." index="0" instance=ExtResource("2_58yew")]
+
+[node name="Skeleton3D" parent="Sketchfab_Scene/Sketchfab_model/Industrial_fbx/Object_2/RootNode/Industrial-Security-Drone/Object_5" index="0"]
+bones/1/position = Vector3(0.000498248, 0.0941278, 0.254173)
+bones/1/rotation = Quaternion(0.996151, 0.00243312, -0.00415101, -0.087525)
+bones/3/position = Vector3(5.36675e-09, 0.02, -0.01)
+bones/5/position = Vector3(1.07102e-08, 0.03, 0.02)
+bones/10/position = Vector3(-1.76951e-09, 0.02, -0.00999997)
+bones/12/position = Vector3(-2.28174e-09, 0.03, 0.02)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Sketchfab_Scene/Sketchfab_model/Industrial_fbx/Object_2/RootNode/Industrial-Security-Drone/Object_5/Skeleton3D" index="3"]
+transform = Transform3D(0.999953, 0.00412087, -0.00869597, 0.00557414, -0.984667, 0.174356, -0.00784414, -0.174396, -0.984643, 0.000498248, 0.0941278, 0.254173)
+bone_name = "Base_00"
+bone_idx = 1
+
+[node name="HoverSound" type="AudioStreamPlayer3D" parent="Sketchfab_Scene/Sketchfab_model/Industrial_fbx/Object_2/RootNode/Industrial-Security-Drone/Object_5/Skeleton3D/BoneAttachment3D" index="0"]
+stream = ExtResource("4_fwfc4")
+volume_db = -35.0
+unit_size = 1.0
+autoplay = true
+
+[node name="AnimationSound" type="AudioStreamPlayer3D" parent="Sketchfab_Scene/Sketchfab_model/Industrial_fbx/Object_2/RootNode/Industrial-Security-Drone/Object_5/Skeleton3D/BoneAttachment3D" index="1"]
+volume_db = -20.0
+unit_size = 2.0
+
+[node name="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("CapsuleShape3D_7njp2")
 
-[node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("2_58yew")]
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
+[editable path="Sketchfab_Scene"]

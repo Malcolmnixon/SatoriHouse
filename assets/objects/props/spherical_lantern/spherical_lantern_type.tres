@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://blexm08ffubwu"]
+
+[ext_resource type="Texture2D" uid="uid://casy22phb7lmf" path="res://assets/objects/props/spherical_lantern/spherical_lantern.png" id="1_wh874"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_fi0l0"]
+
+[resource]
+script = ExtResource("2_fi0l0")
+description = "Spherical Lantern"
+image = ExtResource("1_wh874")
+instance_scene = "res://assets/objects/props/spherical_lantern/spherical_lantern.tscn"

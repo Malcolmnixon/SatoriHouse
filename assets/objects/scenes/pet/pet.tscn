@@ -5,5 +5,5 @@
 
 [node name="Pet" instance=ExtResource("1_yjt4m")]
 script = ExtResource("2_soft0")
-snap_angle = 20.0
-ground_snap = true
+idle_animation = "Idle"
+poke_animations = Array[String]([])
