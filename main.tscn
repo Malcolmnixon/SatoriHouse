@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cbceiu7ra3r51"]
+[gd_scene load_steps=27 format=3 uid="uid://cbceiu7ra3r51"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_hk7kl"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_law21"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="6_th1sa"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="7_lyqvy"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="8_64635"]
+[ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="8_tkuy0"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_set.gd" id="9_4d3g8"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="12_q5awc"]
 [ext_resource type="PackedScene" uid="uid://2g4meocaiaok" path="res://assets/menu/hand_menu.tscn" id="14_qvb2p"]
@@ -36,13 +37,7 @@ tonemap_mode = 2
 
 [sub_resource type="Resource" id="Resource_uynfr"]
 script = ExtResource("6_th1sa")
-poses = Array[ExtResource("3_avjaf")]([ExtResource("4_jfajt"), ExtResource("6_haqry")])
-
-[sub_resource type="Resource" id="Resource_btybm"]
-script = ExtResource("8_64635")
-pose = ExtResource("4_jfajt")
-action_type = 1
-action_name = "grip"
+poses = Array[ExtResource("3_avjaf")]([ExtResource("6_haqry"), ExtResource("4_jfajt"), ExtResource("8_tkuy0")])
 
 [sub_resource type="Resource" id="Resource_2irym"]
 script = ExtResource("8_64635")
@@ -50,13 +45,21 @@ pose = ExtResource("6_haqry")
 action_type = 0
 action_name = "hand_menu"
 
+[sub_resource type="Resource" id="Resource_btybm"]
+script = ExtResource("8_64635")
+pose = ExtResource("4_jfajt")
+action_type = 1
+action_name = "grip"
+
+[sub_resource type="Resource" id="Resource_vwmjc"]
+script = ExtResource("8_64635")
+pose = ExtResource("8_tkuy0")
+action_type = 1
+action_name = "grip"
+
 [sub_resource type="Resource" id="Resource_168a2"]
 script = ExtResource("9_4d3g8")
-actions = Array[ExtResource("8_64635")]([SubResource("Resource_btybm"), SubResource("Resource_2irym")])
-
-[sub_resource type="Resource" id="Resource_ady3t"]
-script = ExtResource("9_4d3g8")
-actions = Array[ExtResource("8_64635")]([SubResource("Resource_btybm"), SubResource("Resource_2irym")])
+actions = Array[ExtResource("8_64635")]([SubResource("Resource_2irym"), SubResource("Resource_btybm"), SubResource("Resource_vwmjc")])
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_hk7kl")
@@ -79,6 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="LeftTrackedHand" type="XRNode3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
 tracker = &"/user/hand_tracker/left"
+show_when_tracked = true
 
 [node name="LeftHandHumanoid2" parent="XROrigin3D/LeftTrackedHand" instance=ExtResource("1_law21")]
 
@@ -100,12 +104,14 @@ push_bodies = false
 hand_pose_set = SubResource("Resource_uynfr")
 
 [node name="HandPoseController" parent="XROrigin3D/LeftTrackedHand/HandPoseDetector" instance=ExtResource("7_lyqvy")]
+tracker_name = "/user/hand_pose_controller/left"
 pose_type = 1
 action_set = SubResource("Resource_168a2")
 
 [node name="RightTrackedHand" type="XRNode3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0)
 tracker = &"/user/hand_tracker/right"
+show_when_tracked = true
 
 [node name="RightHandHumanoid2" parent="XROrigin3D/RightTrackedHand" instance=ExtResource("2_e188g")]
 
@@ -130,7 +136,7 @@ tracker_name = "/user/hand_tracker/right"
 [node name="HandPoseController" parent="XROrigin3D/RightTrackedHand/HandPoseDetector" instance=ExtResource("7_lyqvy")]
 tracker_name = "/user/hand_pose_controller/right"
 pose_type = 1
-action_set = SubResource("Resource_ady3t")
+action_set = SubResource("Resource_168a2")
 
 [node name="LeftVirtualController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
@@ -140,8 +146,9 @@ tracker = &"/user/hand_pose_controller/left"
 grab_distance = 0.1
 ranged_enable = false
 
-[node name="HandMenu" parent="XROrigin3D/LeftVirtualController" instance=ExtResource("14_qvb2p")]
+[node name="HandMenu" parent="XROrigin3D/LeftVirtualController" node_paths=PackedStringArray("camera") instance=ExtResource("14_qvb2p")]
 transform = Transform3D(0.309975, 0.144544, 0.939693, -0.422618, 0.906307, 0, -0.85165, -0.397131, 0.34202, 0.03, 0.05, -0.065)
+camera = NodePath("../../XRCamera3D")
 
 [node name="RightVirtualController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0)
@@ -151,8 +158,9 @@ tracker = &"/user/hand_pose_controller/right"
 grab_distance = 0.1
 ranged_enable = false
 
-[node name="HandMenu" parent="XROrigin3D/RightVirtualController" instance=ExtResource("14_qvb2p")]
+[node name="HandMenu" parent="XROrigin3D/RightVirtualController" node_paths=PackedStringArray("camera") instance=ExtResource("14_qvb2p")]
 transform = Transform3D(0.309975, -0.144544, -0.939693, 0.422618, 0.906308, 0, 0.85165, -0.397131, 0.34202, -0.03, 0.05, -0.065)
+camera = NodePath("../../XRCamera3D")
 
 [node name="SceneManager" type="OpenXRFbSceneManager" parent="XROrigin3D"]
 scenes/global_mesh = ExtResource("15_wi80q")
