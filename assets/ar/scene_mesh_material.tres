@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cro8xmnmblyjk"]
 
-[ext_resource type="Shader" path="res://assets/ar/global_mesh_material.gdshader" id="1_mglla"]
+[ext_resource type="Shader" path="res://assets/ar/scene_mesh_material.gdshader" id="1_mglla"]
 
 [resource]
 render_priority = 0

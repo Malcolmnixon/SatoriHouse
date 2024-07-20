@@ -3,6 +3,8 @@ extends Node
 
 signal show_audio(p_visible : bool)
 
+signal capture_scene
+
 signal physics_changed
 
 signal create_decoration(p_decoration : DecorationType)
@@ -15,8 +17,11 @@ signal quit
 
 
 
-## Test if a global mesh exists
-var has_global_mesh : bool = false
+## Test if scene capture is supported
+var can_scene_capture : bool = false
+
+## Test if scene anchors are present
+var has_scene_anchors : bool = false
 
 ## Should objects be deleted on touch
 var delete_on_touch : bool = false
@@ -34,6 +39,10 @@ func show_audio_toggled(p_visible : bool) -> void:
 
 func create_decoration_selected(p_decoration : DecorationType) -> void:
 	create_decoration.emit(p_decoration)
+
+
+func capture_scene_pressed() -> void:
+	capture_scene.emit()
 
 
 func physics_toggled(p_physics_enabled : bool) -> void:
