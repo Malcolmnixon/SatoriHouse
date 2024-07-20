@@ -9,7 +9,7 @@ func setup_scene(entity : OpenXRFbSpatialEntity) -> void:
 	var collision_shape := entity.create_collision_shape()
 	if collision_shape:
 		add_child(collision_shape)
-		Game.has_global_mesh = true
+		Game.has_scene_anchors = true
 
 	# Construct the collision mesh
 	var mesh_instance := entity.create_mesh_instance()

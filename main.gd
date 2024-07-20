@@ -11,7 +11,14 @@ func _ready() -> void:
 	Game.save.connect(_save)
 	Game.quit.connect(_quit)
 	Game.show_audio.connect(_on_show_audio)
+	Game.capture_scene.connect(_on_capture_scene)
 	Game.create_decoration.connect(_on_create_decoration)
+
+	# Test if scene manager is real
+	if %SceneManager.is_class("OpenXRFbSceneManager"):
+		%SceneManager.openxr_fb_scene_data_missing.connect(_scene_data_missing)
+		%SceneManager.openxr_fb_scene_capture_completed.connect(_scene_capture_completed)
+		Game.can_scene_capture = true
 
 	# Test if the anchor manager is real
 	if %AnchorManager.is_class("OpenXRFbSpatialAnchorManager"):
@@ -124,6 +131,27 @@ func _save() -> void:
 	if file:
 		file.store_string(JSON.stringify(anchor_data))
 		file.close()
+
+
+func _on_capture_scene() -> void:
+	%SceneManager.request_scene_capture()
+
+
+func _scene_data_missing() -> void:
+	%SceneManager.request_scene_capture()
+
+
+func _scene_capture_completed(p_success : bool) -> void:
+	# Skip on capture failure
+	if not p_success:
+		return
+
+	# Remove old anchors
+	if %SceneManager.are_scene_anchors_created():
+		%SceneManager.remove_scene_anchors()
+
+	# Create anchors
+	%SceneManager.create_scene_anchors()
 
 
 func _quit() -> void:

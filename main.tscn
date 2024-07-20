@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_set.gd" id="9_4d3g8"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="12_q5awc"]
 [ext_resource type="PackedScene" uid="uid://2g4meocaiaok" path="res://assets/menu/hand_menu.tscn" id="14_qvb2p"]
-[ext_resource type="PackedScene" uid="uid://cempwru6nstx8" path="res://assets/ar/global_mesh.tscn" id="15_wi80q"]
+[ext_resource type="PackedScene" uid="uid://cempwru6nstx8" path="res://assets/ar/scene_anchor.tscn" id="16_fowfo"]
 [ext_resource type="PackedScene" uid="uid://d3ku8d8g5ee7o" path="res://assets/objects/props/manual/manual.tscn" id="16_jsib0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wn0fy"]
@@ -163,7 +163,7 @@ transform = Transform3D(0.309975, -0.144544, -0.939693, 0.422618, 0.906308, 0, 0
 camera = NodePath("../../XRCamera3D")
 
 [node name="SceneManager" type="OpenXRFbSceneManager" parent="XROrigin3D"]
-scenes/global_mesh = ExtResource("15_wi80q")
+default_scene = ExtResource("16_fowfo")
 unique_name_in_owner = true
 
 [node name="AnchorManager" type="OpenXRFbSpatialAnchorManager" parent="XROrigin3D"]

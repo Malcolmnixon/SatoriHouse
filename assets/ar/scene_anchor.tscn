@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cempwru6nstx8"]
+
+[ext_resource type="Script" path="res://assets/ar/scene_anchor.gd" id="1_hwko4"]
+[ext_resource type="Material" uid="uid://cro8xmnmblyjk" path="res://assets/ar/scene_mesh_material.tres" id="2_7l337"]
+
+[node name="SceneAnchor" type="StaticBody3D"]
+script = ExtResource("1_hwko4")
+material = ExtResource("2_7l337")
