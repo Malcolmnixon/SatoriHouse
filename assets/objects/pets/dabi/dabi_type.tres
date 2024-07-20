@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecorationType" load_steps=3 format=3 uid="uid://c6ad161sdm5hs"]
+
+[ext_resource type="Texture2D" uid="uid://b7401j6kdn11a" path="res://assets/objects/pets/dabi/dabi.png" id="1_pusfo"]
+[ext_resource type="Script" path="res://assets/menu/decoration_type.gd" id="2_iakhr"]
+
+[resource]
+script = ExtResource("2_iakhr")
+description = "Dabi"
+image = ExtResource("1_pusfo")
+instance_scene = "res://assets/objects/pets/dabi/dabi.tscn"

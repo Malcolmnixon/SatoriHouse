@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://b3p34cbjv0qua"]
+
+[ext_resource type="PackedScene" uid="uid://cx3na44g7dj65" path="res://assets/objects/scenes/pet/pet.tscn" id="1_q4x1n"]
+[ext_resource type="Script" path="res://assets/objects/scenes/pet/pet_animation.gd" id="2_0pd1c"]
+[ext_resource type="PackedScene" uid="uid://b1hp5agwhheee" path="res://assets/objects/pets/dabi/dabi__touya_todoroki.glb" id="3_powq3"]
+[ext_resource type="Animation" uid="uid://nym6sbw1gpic" path="res://assets/animations/breathing.tres" id="4_uhae2"]
+[ext_resource type="Animation" uid="uid://dk14hdmojphlw" path="res://assets/animations/happy_idle.tres" id="5_nh2kx"]
+[ext_resource type="Animation" uid="uid://b4r6f25ychgup" path="res://assets/animations/arm_stretching.tres" id="6_qebmn"]
+[ext_resource type="Animation" uid="uid://cwpp5jpsfjwk1" path="res://assets/animations/gangnam_style.tres" id="7_7p2il"]
+[ext_resource type="Animation" uid="uid://bjojjhl3ryqlp" path="res://assets/animations/kneel.tres" id="8_nl2hd"]
+
+[sub_resource type="Resource" id="Resource_3aaht"]
+script = ExtResource("2_0pd1c")
+animations = ["ArmStretching"]
+
+[sub_resource type="Resource" id="Resource_31hgh"]
+script = ExtResource("2_0pd1c")
+animations = ["HappyIdle"]
+
+[sub_resource type="Resource" id="Resource_qclvs"]
+script = ExtResource("2_0pd1c")
+animations = ["GangnamStyle"]
+
+[sub_resource type="Resource" id="Resource_p88q1"]
+script = ExtResource("2_0pd1c")
+animations = ["Kneel"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mt3wv"]
+size = Vector3(0.593689, 1.8, 0.326416)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cb6cm"]
+_data = {
+"ArmStretching": ExtResource("6_qebmn"),
+"GangnamStyle": ExtResource("7_7p2il"),
+"HappyIdle": ExtResource("5_nh2kx"),
+"Idle": ExtResource("4_uhae2"),
+"Kneel": ExtResource("8_nl2hd")
+}
+
+[node name="Dabi" instance=ExtResource("1_q4x1n")]
+poke_animations = Array[ExtResource("2_0pd1c")]([SubResource("Resource_3aaht"), SubResource("Resource_31hgh"), SubResource("Resource_qclvs"), SubResource("Resource_p88q1")])
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_mt3wv")
+
+[node name="dabi__touya_todoroki" parent="." index="1" instance=ExtResource("3_powq3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="GeneralSkeleton" parent="dabi__touya_todoroki/Armature" index="0"]
+bones/0/position = Vector3(0.00332245, 1.25384, -0.00159602)
+bones/0/rotation = Quaternion(-0.0313038, -0.0465352, -0.0291044, 0.998002)
+bones/1/rotation = Quaternion(0.0292359, 0.0128665, 0.0219874, 0.999248)
+bones/2/rotation = Quaternion(0.0100895, 0.00297775, 0.0135116, 0.999853)
+bones/3/rotation = Quaternion(0.00986459, 0.0031642, 0.0135357, 0.999855)
+bones/4/rotation = Quaternion(0.195587, -0.000439467, 0.00415035, 0.980677)
+bones/5/rotation = Quaternion(-0.0659753, 0.0107183, -0.0047468, 0.997752)
+bones/8/rotation = Quaternion(0.457397, 0.499736, 0.632587, -0.375347)
+bones/9/rotation = Quaternion(0.123045, 0.804013, -0.567754, -0.126802)
+bones/10/rotation = Quaternion(0.00900507, -0.707049, 0.00900504, 0.707049)
+bones/11/rotation = Quaternion(0.0531629, 0.475226, -0.0152585, 0.878124)
+bones/13/rotation = Quaternion(0.00166929, 0.632178, 0.295125, 0.716414)
+bones/14/rotation = Quaternion(0.240535, 0.0865953, -0.142713, 0.956178)
+bones/15/rotation = Quaternion(-0.0240999, -0.0755436, -0.120939, 0.989488)
+bones/18/rotation = Quaternion(0.0662181, 0.000731811, 0.00843969, 0.997769)
+bones/19/rotation = Quaternion(0.15097, -1.19209e-07, -0.0154708, 0.988417)
+bones/20/rotation = Quaternion(0.0700583, -2.98023e-08, -0.00717935, 0.997517)
+bones/23/rotation = Quaternion(0.136531, -0.00383587, -0.0229523, 0.990362)
+bones/24/rotation = Quaternion(0.151241, -3.27826e-07, -0.0154985, 0.988375)
+bones/25/rotation = Quaternion(0.159984, -4.47035e-08, -0.0163946, 0.986983)
+bones/28/rotation = Quaternion(0.183246, -0.00464407, -0.0315035, 0.982551)
+bones/29/rotation = Quaternion(0.181373, 0, -0.0185865, 0.983239)
+bones/30/rotation = Quaternion(0.155197, -2.83122e-07, -0.0159038, 0.987756)
+bones/33/rotation = Quaternion(0.233871, -0.00358993, -0.0490278, 0.971024)
+bones/34/rotation = Quaternion(0.151193, -1.04308e-07, -0.0154937, 0.988383)
+bones/35/rotation = Quaternion(0.143468, -1.04308e-07, -0.0147021, 0.989546)
+bones/37/rotation = Quaternion(0.476158, -0.479058, -0.634719, -0.375378)
+bones/38/rotation = Quaternion(-0.151537, 0.827234, -0.497301, 0.213101)
+bones/39/rotation = Quaternion(0.0412814, 0.705901, -0.0412814, 0.705901)
+bones/40/rotation = Quaternion(0.0459536, -0.57107, 0.0375356, 0.818754)
+bones/42/rotation = Quaternion(-0.00837549, -0.624295, -0.310741, 0.716677)
+bones/43/rotation = Quaternion(0.27719, -0.0761469, 0.144152, 0.946883)
+bones/44/rotation = Quaternion(-0.0260518, 0.0746219, 0.155243, 0.984709)
+bones/47/rotation = Quaternion(0.0595169, -0.00104545, -0.0109868, 0.998166)
+bones/48/rotation = Quaternion(0.151358, 1.19209e-07, 0.0123299, 0.988402)
+bones/49/rotation = Quaternion(0.0702883, 7.45058e-08, 0.00572574, 0.99751)
+bones/52/rotation = Quaternion(0.130515, 0.00368993, 0.0189221, 0.991259)
+bones/53/rotation = Quaternion(0.151494, -2.98023e-08, 0.0123411, 0.988381)
+bones/54/rotation = Quaternion(0.160199, 3.27826e-07, 0.01305, 0.986998)
+bones/57/rotation = Quaternion(0.177452, 0.00450176, 0.0264589, 0.983763)
+bones/58/rotation = Quaternion(0.181722, 5.96046e-08, 0.0148034, 0.983239)
+bones/59/rotation = Quaternion(0.1555, 2.08616e-07, 0.0126673, 0.987755)
+bones/62/rotation = Quaternion(0.228495, 0.00351165, 0.0430127, 0.972588)
+bones/63/rotation = Quaternion(0.151548, 1.49012e-07, 0.0123453, 0.988373)
+bones/64/rotation = Quaternion(0.143773, 1.78814e-07, 0.011712, 0.989541)
+bones/66/rotation = Quaternion(0.1353, 0.0849429, 0.984208, -0.0762455)
+bones/67/rotation = Quaternion(-0.0385902, 0.992596, -0.114375, 0.0135204)
+bones/68/rotation = Quaternion(-0.0411935, 0.710645, -0.700668, 0.0484822)
+bones/69/rotation = Quaternion(-9.5489e-09, 0.999074, 0.0430202, -6.91472e-09)
+bones/72/rotation = Quaternion(-0.0905138, -0.0104604, 0.995406, -0.0294034)
+bones/73/rotation = Quaternion(0.0329914, 0.994421, -0.0554359, -0.0834553)
+bones/74/rotation = Quaternion(0.00960524, 0.6855, -0.727448, -0.0285892)
+bones/75/rotation = Quaternion(5.16957e-08, 0.997981, 0.0635167, -2.00856e-08)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dabi__touya_todoroki" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_cb6cm")
+}
+autoplay = "breathing/breathing"
+
+[editable path="dabi__touya_todoroki"]
