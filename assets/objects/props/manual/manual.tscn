@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3ku8d8g5ee7o"]
+[gd_scene load_steps=9 format=3 uid="uid://d3ku8d8g5ee7o"]
 
 [ext_resource type="PackedScene" uid="uid://dlcfi7dsnrdlp" path="res://assets/objects/scenes/decoration/decoration.tscn" id="1_68wk4"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_mbkn1"]
@@ -9,7 +9,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4tmfu"]
 size = Vector3(0.85, 0.65, 0.02)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpaqv"]
+albedo_color = Color(0.377919, 0.377919, 0.377919, 1)
+
 [sub_resource type="QuadMesh" id="QuadMesh_1i8sa"]
+material = SubResource("StandardMaterial3D_lpaqv")
 size = Vector2(0.85, 0.65)
 
 [node name="Manual" instance=ExtResource("1_68wk4")]

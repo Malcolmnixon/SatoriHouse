@@ -1,20 +1,34 @@
 extends Node3D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	var controller := get_parent() as XRController3D
-	if controller:
-		controller.button_pressed.connect(_on_button_pressed)
-		controller.button_released.connect(_on_button_released)
+## Camera for view-checking
+@export var camera : XRCamera3D
+
+## Angle for view-checking
+@export_range(0, 90, 0.1, "radians") var max_angle := 0.785398
 
 
-func _on_button_pressed(p_button : String) -> void:
-	if p_button == "hand_menu":
-		$Menu.enabled = true
-		$Menu.visible = true
-	
-func _on_button_released(p_button : String) -> void:
-	if p_button == "hand_menu":
-		$Menu.enabled = false
-		$Menu.visible = false
+## Controller
+@onready var controller : XRController3D = get_parent()
+
+## Menu
+@onready var menu : XRToolsViewport2DIn3D = $Menu
+
+
+func _process(_delta : float) -> void:
+	# Inspect the view angle
+	var camera_xform := camera.global_transform
+	var menu_xform := menu.global_transform
+	var to_camera = (camera_xform.origin - menu_xform.origin).normalized()
+	var angle := menu_xform.basis.z.angle_to(to_camera)
+
+	# Decide whether the menu should be shown
+	var show := controller.is_button_pressed("hand_menu") and angle <= max_angle
+
+	# Toggle visibility
+	if show and not menu.visible:
+		menu.enabled = true
+		menu.visible = true
+	elif not show and menu.visible:
+		menu.enabled = false
+		menu.visible = false
