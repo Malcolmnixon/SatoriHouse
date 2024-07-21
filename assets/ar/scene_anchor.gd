@@ -15,4 +15,5 @@ func setup_scene(entity : OpenXRFbSpatialEntity) -> void:
 	var mesh_instance := entity.create_mesh_instance()
 	if mesh_instance:
 		add_child(mesh_instance)
+		mesh_instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		mesh_instance.material_override = material
