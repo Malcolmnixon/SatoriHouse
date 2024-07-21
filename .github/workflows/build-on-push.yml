@@ -1,0 +1,137 @@
+# Workflow to automatically create deliverables
+name: Build on push
+
+on:
+  [push, pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    # Check out the files
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    # Install JDK for android builds
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    # Install Android SDK for android builds
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+
+    # Install Android SDK packages required by Godot
+    - name: Install Android SDK Packages
+      run: >
+        sdkmanager
+        "platform-tools"
+        "build-tools;34.0.0"
+        "platforms;android-34"
+        "cmdline-tools;latest"
+        "cmake;3.10.2.4988404"
+        "ndk;23.2.8568313"
+
+    # Install the appropriate version of Godot
+    - name: Setup Godot
+      uses: chickensoft-games/setup-godot@v1
+      with:
+        version: 4.3.0-beta3
+        use-dotnet: false
+        include-templates: true
+
+    # Perform initial asset import - sometimes crashes
+    - name: Godot Import Assets (initial)
+      shell: bash
+      run: |
+        godot --headless --import || exit 0
+
+    # Perform asset import        
+    - name: Godot Import Assets (repeat)
+      shell: bash
+      run: |
+        godot --headless --import
+
+    # Export for WebXR
+    - name: Godot Export WebXR
+      shell: bash
+      run: >
+        godot
+        --headless
+        --export-release WebXR
+
+    # Export for Windows
+    - name: Godot Export Windows
+      shell: bash
+      run: >
+        godot
+        --headless
+        --export-release Windows
+
+    # Export for Android (including install of build template)
+    - name: Godot Export Android
+      shell: bash
+      run: >
+        godot
+        --headless
+        --install-android-build-template
+        --export-debug MetaQuest
+
+    # Clean the artifact folders
+    - name: Clean up artifacts
+      shell: bash
+      run: |
+        rm build/webxr/.gitignore
+        rm build/windows/.gitignore
+        rm build/metaquest/.gitignore
+
+    # Upload the WebXR artifacts
+    - name: Upload WebXR
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-webxr
+        path: |
+          build/webxr/*.*
+
+    # Upload the Windows artifacts
+    - name: Upload Windows
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-windows
+        path: |
+          build/windows/*.*
+
+    # Upload the MetaQuest APK
+    - name: Upload MetaQuest
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-metaquest
+        path: |
+          build/metaquest/*.apk
+
+    # Zip the WebXR files
+    - name: Zip WebXR
+      run: |
+        cd build/webxr
+        zip -qq SatoriHouse-WebXR.zip *.*
+    
+    # Zip the Windows files
+    - name: Zip WebXR
+      run: |
+        cd build/windows
+        zip -qq SatoriHouse-Windows.zip *.*
+
+    # For releases upload the assets
+    - name: Create and upload asset
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
+      uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: true
+        artifacts: "build/metaquest/*.apk,build/webxr/*.zip,build/windows/*.zip"
+        omitNameDuringUpdate: true
+        omitBodyDuringUpdate: true
+        token: ${{ secrets.GITHUB_TOKEN }}
