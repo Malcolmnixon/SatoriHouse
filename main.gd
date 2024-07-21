@@ -13,6 +13,7 @@ func _ready() -> void:
 	Game.show_audio.connect(_on_show_audio)
 	Game.capture_scene.connect(_on_capture_scene)
 	Game.create_decoration.connect(_on_create_decoration)
+	Game.shadows_changed.connect(_on_shadows_changed)
 
 	# Test if scene manager is real
 	if %SceneManager.is_class("OpenXRFbSceneManager"):
@@ -48,6 +49,10 @@ func _on_create_decoration(p_decoration : DecorationType) -> void:
 	# Add to the scene
 	%Decorations.add_child(instance)
 	instance.global_position = pos
+
+
+func _on_shadows_changed() -> void:
+	%DirectionalLight3D.shadow_enabled = Game.shadows_enabled
 
 
 func _load() -> void:

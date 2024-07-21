@@ -7,6 +7,8 @@ signal capture_scene
 
 signal physics_changed
 
+signal shadows_changed
+
 signal create_decoration(p_decoration : DecorationType)
 
 signal clear
@@ -29,6 +31,9 @@ var delete_on_touch : bool = false
 ## Is physics enabled
 var physics_enabled : bool = false
 
+## Is shadows enabled
+var shadows_enabled : bool = false
+
 ## Is save supported
 var can_save : bool = false
 
@@ -48,6 +53,11 @@ func capture_scene_pressed() -> void:
 func physics_toggled(p_physics_enabled : bool) -> void:
 	physics_enabled = p_physics_enabled
 	physics_changed.emit()
+
+
+func shadows_toggled(p_shadows_enabled : bool) -> void:
+	shadows_enabled = p_shadows_enabled
+	shadows_changed.emit()
 
 
 func clear_pressed() -> void:

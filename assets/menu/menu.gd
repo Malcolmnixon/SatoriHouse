@@ -21,6 +21,10 @@ func _on_enable_physics_toggled(toggled_on: bool) -> void:
 	Game.physics_toggled(toggled_on)
 
 
+func _on_enable_shadows_toggled(toggled_on: bool) -> void:
+	Game.shadows_toggled(toggled_on)
+
+
 func _on_clear_button_pressed() -> void:
 	Game.clear_pressed()
 
