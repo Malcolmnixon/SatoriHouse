@@ -1,4 +1,11 @@
-# 1.2.0 (in progress)
+# 2.0.0 (in progress)
+- Rename Action-Set to Action-Map to better match OpenXR naming
+- Modify HandPoseController to extend from HandPoseDetector (breaking change)
+
+# 1.3.0
+- Fine-tune aim pose
+
+# 1.2.0
 - Added hand pose controller capable of generating XR input actions
 - Added debounce hold and release times for poses
 - Added controller pose type [skeleton, aim, grab]
